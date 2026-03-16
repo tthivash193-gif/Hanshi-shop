@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>My Orders</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:linear-gradient(#f7f7f7,#ececec);
+}
+
+a{
+text-decoration:none;
+color:black;
+}
+
+/* HEADER */
+
+.header{
+background:white;
+padding:12px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.title{
+font-size:18px;
+font-weight:bold;
+}
+
+/* ORDER BOX */
+
+.order{
+background:white;
+margin:12px;
+padding:12px;
+border-radius:10px;
+display:flex;
+gap:10px;
+}
+
+.order img{
+width:80px;
+border-radius:6px;
+}
+
+.info{
+flex:1;
+}
+
+.status{
+color:green;
+font-size:14px;
+margin-top:4px;
+}
+
+.price{
+font-weight:bold;
+margin-top:4px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<a href="profile.html">←</a>
+
+<div class="title">
+My Orders
+</div>
+
+<a href="cart.html">🛒</a>
+
+</div>
+
+<!-- ORDER -->
+
+<div class="order">
+
+<img src="https://i.imgur.com/YR6P6Qy.jpeg">
+
+<div class="info">
+
+<p>Supercar Wall Poster</p>
+
+<div class="price">
+₹258
+</div>
+
+<div class="status">
+Delivered ✔
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

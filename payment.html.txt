@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Payment</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:#f5f5f5;
+}
+
+a{
+text-decoration:none;
+color:black;
+}
+
+/* HEADER */
+
+.header{
+background:white;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:12px;
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
+position:sticky;
+top:0;
+}
+
+.title{
+font-size:18px;
+font-weight:bold;
+}
+
+/* PAYMENT BOX */
+
+.pay-box{
+background:white;
+margin:10px;
+padding:15px;
+border-radius:8px;
+}
+
+.option{
+display:flex;
+align-items:center;
+gap:10px;
+margin:12px 0;
+font-size:16px;
+}
+
+/* PLACE ORDER */
+
+.place{
+position:fixed;
+bottom:0;
+width:100%;
+background:#9c27b0;
+color:white;
+text-align:center;
+padding:14px;
+font-weight:bold;
+}
+
+.space{
+height:70px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<div class="header">
+
+<a href="review.html">←</a>
+
+<div class="title">
+
+Select Payment
+
+</div>
+
+<a href="profile.html">👤</a>
+
+</div>
+
+<!-- PAYMENT OPTIONS -->
+
+<div class="pay-box">
+
+<h3>Payment Methods</h3>
+
+<label class="option">
+
+<input type="radio" name="pay">
+
+Cash on Delivery
+
+</label>
+
+<label class="option">
+
+<input type="radio" name="pay">
+
+UPI Payment
+
+</label>
+
+<label class="option">
+
+<input type="radio" name="pay">
+
+Credit / Debit Card
+
+</label>
+
+<label class="option">
+
+<input type="radio" name="pay">
+
+Net Banking
+
+</label>
+
+</div>
+
+<div class="space"></div>
+
+<!-- PLACE ORDER -->
+
+<a href="success.html">
+
+<div class="place">
+
+Place Order
+
+</div>
+
+</a>
+
+</body>
+
+</html>

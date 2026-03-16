@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Product</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:linear-gradient(#f7f7f7,#ececec);
+}
+
+a{
+text-decoration:none;
+color:black;
+}
+
+/* HEADER */
+
+.header{
+background:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px;
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
+position:sticky;
+top:0;
+}
+
+.left{
+display:flex;
+gap:12px;
+font-size:22px;
+}
+
+.right{
+display:flex;
+gap:15px;
+font-size:20px;
+}
+
+/* IMAGE */
+
+.product-img img{
+width:100%;
+background:white;
+}
+
+/* DETAILS */
+
+.details{
+background:white;
+padding:15px;
+margin-top:8px;
+}
+
+.price{
+font-size:22px;
+font-weight:bold;
+}
+
+.old{
+text-decoration:line-through;
+color:gray;
+margin-left:6px;
+}
+
+.off{
+color:green;
+margin-left:6px;
+}
+
+.title{
+margin-top:10px;
+font-size:16px;
+}
+
+.rating{
+margin-top:6px;
+color:#ff9800;
+}
+
+/* SECTION */
+
+.section{
+background:white;
+padding:15px;
+margin-top:8px;
+}
+
+/* RELATED */
+
+.related{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-top:10px;
+}
+
+.related img{
+width:100%;
+border-radius:8px;
+}
+
+.related p{
+font-size:14px;
+}
+
+/* BUTTONS */
+
+.buttons{
+position:fixed;
+bottom:0;
+width:100%;
+display:flex;
+}
+
+.cart{
+flex:1;
+padding:14px;
+background:#ff9800;
+color:white;
+text-align:center;
+font-weight:bold;
+}
+
+.buy{
+flex:1;
+padding:14px;
+background:#9c27b0;
+color:white;
+text-align:center;
+font-weight:bold;
+}
+
+.space{
+height:70px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<div class="header">
+
+<div class="left">
+
+<a href="home.html">←</a>
+
+</div>
+
+<div class="right">
+
+<a href="wishlist.html">♡</a>
+
+<a href="cart.html">🛒</a>
+
+</div>
+
+</div>
+
+<!-- PRODUCT IMAGE -->
+
+<div class="product-img">
+
+<img src="https://i.imgur.com/YR6P6Qy.jpeg">
+
+</div>
+
+<!-- PRODUCT DETAILS -->
+
+<div class="details">
+
+<div class="price">
+
+₹258
+
+<span class="old">₹314</span>
+
+<span class="off">18% off</span>
+
+</div>
+
+<div class="title">
+
+Supercar Wall Poster for Room Decoration
+
+</div>
+
+<div class="rating">
+
+⭐⭐⭐⭐☆ (245 Reviews)
+
+</div>
+
+</div>
+
+<!-- DESCRIPTION -->
+
+<div class="section">
+
+<h3>Product Details</h3>
+
+<p>
+
+High quality wall poster perfect for room decoration.
+Premium print quality with long lasting colors.
+
+</p>
+
+</div>
+
+<!-- RELATED PRODUCTS -->
+
+<div class="section">
+
+<h3>Similar Products</h3>
+
+<div class="related">
+
+<a href="product.html">
+
+<img src="https://i.imgur.com/YR6P6Qy.jpeg">
+
+<p>Gaming Poster ₹199</p>
+
+</a>
+
+<a href="product.html">
+
+<img src="https://i.imgur.com/YR6P6Qy.jpeg">
+
+<p>Bike Poster ₹299</p>
+
+</a>
+
+</div>
+
+</div>
+
+<div class="space"></div>
+
+<!-- BUTTONS -->
+
+<div class="buttons">
+
+<a href="cart.html" class="cart">
+
+Add to Cart
+
+</a>
+
+<a href="review.html" class="buy">
+
+Buy Now
+
+</a>
+
+</div>
+
+</body>
+
+</html>
