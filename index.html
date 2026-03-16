@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mini Meesho</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:linear-gradient(#f7f7f7,#ececec);
+}
+
+a{
+text-decoration:none;
+color:black;
+}
+
+/* HEADER */
+
+.header{
+background:white;
+display:flex;
+align-items:center;
+padding:10px;
+gap:10px;
+box-shadow:0 2px 8px rgba(0,0,0,0.08);
+position:sticky;
+top:0;
+z-index:10;
+}
+
+.menu{
+font-size:22px;
+cursor:pointer;
+}
+
+.search{
+flex:1;
+}
+
+.search input{
+width:100%;
+padding:10px;
+border-radius:25px;
+border:1px solid #ddd;
+}
+
+.icon{
+font-size:20px;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+height:100%;
+width:0;
+position:fixed;
+top:0;
+left:0;
+background:white;
+overflow-x:hidden;
+transition:0.3s;
+padding-top:60px;
+box-shadow:2px 0 10px rgba(0,0,0,0.2);
+z-index:999;
+}
+
+.sidebar a{
+display:block;
+padding:15px;
+font-size:16px;
+border-bottom:1px solid #eee;
+}
+
+.close{
+position:absolute;
+top:10px;
+right:15px;
+font-size:26px;
+}
+
+/* BANNER */
+
+.banner img{
+width:100%;
+display:block;
+}
+
+/* CATEGORIES */
+
+.categories{
+display:flex;
+overflow-x:auto;
+gap:12px;
+padding:10px;
+background:white;
+}
+
+.cat{
+text-align:center;
+min-width:70px;
+font-size:12px;
+}
+
+.cat img{
+width:60px;
+height:60px;
+border-radius:50%;
+}
+
+/* PRODUCTS */
+
+.products{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+padding:10px;
+}
+
+.product{
+background:white;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 2px 6px rgba(0,0,0,0.08);
+cursor:pointer;
+}
+
+.product img{
+width:100%;
+}
+
+.info{
+padding:8px;
+}
+
+.name{
+font-size:14px;
+margin-bottom:5px;
+}
+
+.price{
+font-weight:bold;
+}
+
+.old{
+text-decoration:line-through;
+color:gray;
+font-size:13px;
+margin-left:5px;
+}
+
+.off{
+color:green;
+font-size:13px;
+margin-left:5px;
+}
+
+/* BOTTOM NAV */
+
+.bottom{
+position:fixed;
+bottom:0;
+width:100%;
+background:white;
+display:flex;
+justify-content:space-around;
+padding:10px 0;
+border-top:1px solid #ddd;
+}
+
+.bottom div{
+text-align:center;
+font-size:13px;
+}
+
+.space{
+height:70px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<div class="header">
+
+<span class="menu" onclick="openMenu()">☰</span>
+
+<div class="search">
+<input type="text" id="searchBox" placeholder="Search products">
+</div>
+
+<a href="wishlist.html" class="icon">♡</a>
+
+<a href="cart.html" class="icon">🛒</a>
+
+</div>
+
+<!-- SIDEBAR -->
+
+<div id="menu" class="sidebar">
+
+<a href="javascript:void(0)" class="close" onclick="closeMenu()">×</a>
+
+<a href="profile.html">👤 Profile</a>
+<a href="orders.html">📦 My Orders</a>
+<a href="wishlist.html">❤️ Wishlist</a>
+<a href="cart.html">🛒 My Cart</a>
+<a href="address.html">📍 Address</a>
+<a href="help.html">❓ Help</a>
+<a href="logout.html">🚪 Logout</a>
+
+</div>
+
+<!-- BANNER -->
+
+<div class="banner">
+
+<img src="https://i.imgur.com/YW6XK7N.jpeg">
+
+</div>
+
+<!-- PRODUCTS -->
+
+<div class="products">
+
+<a href="product.html" class="product">
+
+<img src="https://i.imgur.com/YR6P6Qy.jpeg">
+
+<div class="info">
+<p class="name">Supercar Poster</p>
+
+<div class="price">
+₹258
+<span class="old">314</span>
+<span class="off">18% off</span>
+</div>
+
+</div>
+
+</a>
+
+<a href="product.html" class="product">
+
+<img src="https://i.imgur.com/YR6P6Qy.jpeg">
+
+<div class="info">
+
+<p class="name">Gaming Poster</p>
+
+<div class="price">
+₹199
+<span class="old">299</span>
+<span class="off">30% off</span>
+</div>
+
+</div>
+
+</a>
+
+<a href="product.html" class="product">
+
+<img src="https://i.imgur.com/YR6P6Qy.jpeg">
+
+<div class="info">
+
+<p class="name">Bike Wall Poster</p>
+
+<div class="price">
+₹299
+<span class="old">399</span>
+<span class="off">25% off</span>
+</div>
+
+</div>
+
+</a>
+
+</div>
+
+<div class="space"></div>
+
+<!-- BOTTOM NAV -->
+
+<div class="bottom">
+
+<a href="home.html">
+<div>🏠<p>Home</p></div>
+</a>
+
+<a href="#">
+<div>📦<p>Categories</p></div>
+</a>
+
+<a href="orders.html">
+<div>📑<p>Orders</p></div>
+</a>
+
+<a href="profile.html">
+<div>👤<p>Profile</p></div>
+</a>
+
+</div>
+
+<script>
+
+let search=document.getElementById("searchBox")
+
+search.addEventListener("keyup",function(){
+
+let input=search.value.toLowerCase()
+
+let products=document.querySelectorAll(".product")
+
+products.forEach(function(p){
+
+let name=p.querySelector(".name").innerText.toLowerCase()
+
+if(name.includes(input)){
+p.style.display="block"
+}
+else{
+p.style.display="none"
+}
+
+})
+
+})
+
+function openMenu(){
+document.getElementById("menu").style.width="260px"
+}
+
+function closeMenu(){
+document.getElementById("menu").style.width="0"
+}
+
+</script>
+
+</body>
+</html>
