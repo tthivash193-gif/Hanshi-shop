@@ -1,148 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mini Meesho Login</title>
-
+<title>Mini Meesho Login/Signup</title>
 <style>
-
 body{
-font-family:Arial;
-background:#f5f5f5;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-margin:0;
+  font-family:Arial;
+  margin:0;
+  background:#f5f5f5;
 }
-
 .container{
-background:white;
-padding:25px;
-border-radius:10px;
-width:280px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-text-align:center;
+  max-width:400px;
+  margin:80px auto;
+  background:white;
+  padding:30px;
+  border-radius:10px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
 }
-
-h2{
-margin-bottom:15px;
-}
-
+h2{text-align:center;margin-bottom:20px;}
 input{
-width:100%;
-padding:10px;
-margin:6px 0;
-border-radius:6px;
-border:1px solid #ccc;
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border-radius:6px;
+  border:1px solid #ccc;
 }
-
 button{
-width:100%;
-padding:10px;
-margin-top:10px;
-border:none;
-border-radius:6px;
-background:#9c27b0;
-color:white;
-font-weight:bold;
-cursor:pointer;
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border:none;
+  border-radius:6px;
+  background:#9c27b0;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
 }
-
-.switch{
-margin-top:10px;
-font-size:14px;
-color:#555;
-cursor:pointer;
-}
-
+p{text-align:center;margin-top:15px;font-size:14px;}
+a{text-decoration:none;color:#9c27b0;}
 </style>
-
 </head>
-
 <body>
 
 <div class="container">
+  <h2>Login / Signup</h2>
 
-<h2 id="title">Login</h2>
+  <input type="text" id="name" placeholder="Full Name">
+  <input type="email" id="email" placeholder="Email">
+  <input type="tel" id="phone" placeholder="Phone Number">
 
-<input type="email" id="email" placeholder="Email">
+  <button onclick="login()">Continue</button>
 
-<input type="password" id="password" placeholder="Password">
-
-<button onclick="login()">Login</button>
-
-<div class="switch" onclick="showSignup()">
-New user? Signup
-</div>
-
+  <p>By continuing, you agree to our <a href="#">Terms & Privacy</a></p>
 </div>
 
 <script>
-
-let mode="login"
-
-function showSignup(){
-
-mode="signup"
-
-document.getElementById("title").innerText="Signup"
-
-document.querySelector("button").innerText="Signup"
-
-document.querySelector(".switch").innerText="Already have account? Login"
-
-document.querySelector(".switch").onclick=showLogin
-
-}
-
-function showLogin(){
-
-mode="login"
-
-document.getElementById("title").innerText="Login"
-
-document.querySelector("button").innerText="Login"
-
-document.querySelector(".switch").innerText="New user? Signup"
-
-document.querySelector(".switch").onclick=showSignup
-
-}
-
+// Simple login function (for demo only)
 function login(){
+  let name=document.getElementById("name").value;
+  let email=document.getElementById("email").value;
+  let phone=document.getElementById("phone").value;
 
-let email=document.getElementById("email").value
-let pass=document.getElementById("password").value
+  if(name && email && phone){
+    // save to localStorage
+    localStorage.setItem("user_name",name);
+    localStorage.setItem("user_email",email);
+    localStorage.setItem("user_phone",phone);
 
-if(mode==="signup"){
-
-localStorage.setItem("userEmail",email)
-localStorage.setItem("userPass",pass)
-
-alert("Signup Success! Now Login")
-
-showLogin()
-
-return
+    // redirect to home page
+    window.location.href="home.html";
+  }else{
+    alert("Please fill all fields");
+  }
 }
-
-let savedEmail=localStorage.getItem("userEmail")
-let savedPass=localStorage.getItem("userPass")
-
-if(email===savedEmail && pass===savedPass){
-
-window.location="home.html"
-
-}else{
-
-alert("Wrong Login")
-
-}
-
-}
-
 </script>
 
 </body>
