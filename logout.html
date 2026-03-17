@@ -2,69 +2,22 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Logout</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
-body{
-  background:#f2f2f2;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
-}
-
-/* Card */
-.box{
-  background:white;
-  padding:40px 30px;
-  border-radius:12px;
-  text-align:center;
-  width:300px;
-  box-shadow:0 4px 15px rgba(0,0,0,0.15);
-}
-
-/* Icon */
-.icon{
-  font-size:50px;
-  margin-bottom:15px;
-}
-
-/* Text */
-h2{margin-bottom:10px;}
-p{color:gray;font-size:14px;margin-bottom:20px;}
-
-/* Buttons */
-.btn{
-  display:block;
-  text-decoration:none;
-  padding:12px;
-  border-radius:25px;
-  margin-top:10px;
-  font-size:14px;
-}
-
-/* Login Button */
-.login{
-  background:#9c27b0;
-  color:white;
-}
-
-/* Home Button */
-.home{
-  background:#eee;
-  color:black;
-}
+body{display:flex;justify-content:center;align-items:center;height:100vh;font-family:Arial,sans-serif;background:#f7f7f7;}
+.message-box{background:white;padding:30px 20px;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,0.2);text-align:center;}
+.message-box h2{margin-bottom:20px;color:#333;}
+.message-box p{margin-bottom:20px;color:gray;}
+.message-box a{display:inline-block;padding:12px 25px;background:#4CAF50;color:white;border-radius:8px;text-decoration:none;font-weight:bold;}
 </style>
 </head>
 <body>
 
-<div class="box">
-  <div class="icon">👋</div>
-  <h2>You Logged Out</h2>
-  <p>Your account has been logged out successfully</p>
-  <a href="login.html" class="btn login">Login Again</a>
-  <a href="home.html" class="btn home">Go to Home</a>
+<div class="message-box">
+  <h2>Logged Out Successfully ✅</h2>
+  <p>Thank you for visiting! You have been securely logged out.</p>
+  <a href="index.html">Go to Home</a>
 </div>
 
 </body>
