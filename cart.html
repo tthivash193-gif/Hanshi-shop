@@ -2,194 +2,106 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>My Cart</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultra Pro Max Cart</title>
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial;
-}
-body{
-  background:linear-gradient(#f7f7f7,#ececec);
-}
-a{
-  text-decoration:none;
-  color:black;
-}
-/* HEADER */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{background:#f7f7f7;}
 .header{
-  background:white;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:12px;
-  box-shadow:0 2px 8px rgba(0,0,0,0.1);
-  position:sticky;
-  top:0;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 15px;background:white;box-shadow:0 2px 8px rgba(0,0,0,0.1);
+  position:sticky;top:0;z-index:10;
 }
-.title{
-  font-size:18px;
-  font-weight:bold;
+.header a{text-decoration:none;color:black;font-size:20px;}
+.header .title{font-size:18px;font-weight:bold;}
+.cart-container{padding:15px;margin-top:8px;background:white;}
+.cart-item{
+  display:flex;align-items:center;margin-bottom:12px;border-bottom:1px solid #ddd;padding-bottom:12px;
 }
-/* CART ITEM */
-.cart-box{
-  background:white;
-  margin:10px;
-  padding:12px;
-  display:flex;
-  gap:10px;
-  border-radius:8px;
-}
-.cart-box img{
-  width:90px;
-  border-radius:6px;
-}
-.item-info{
-  flex:1;
-}
-.price{
-  font-weight:bold;
-  margin-top:5px;
-}
-/* QUANTITY */
-.qty{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-top:8px;
-}
+.cart-item img{width:80px;height:80px;border-radius:8px;margin-right:12px;object-fit:cover;}
+.item-info{flex:1;}
+.item-info h4{font-size:16px;margin-bottom:4px;}
+.item-info p{font-size:14px;color:gray;}
+.qty{display:flex;align-items:center;gap:6px;margin-top:6px;}
 .qty button{
-  padding:4px 10px;
-  font-size:16px;
-  border:none;
-  background:#eee;
-  border-radius:4px;
-  cursor:pointer;
+  padding:2px 8px;border:none;background:#ddd;border-radius:4px;font-size:16px;cursor:pointer;
 }
-/* REMOVE */
-.remove{
-  color:red;
-  font-size:13px;
-  margin-top:6px;
-  display:inline-block;
-  cursor:pointer;
-}
-/* SUMMARY */
-.summary{
-  background:white;
-  margin:10px;
-  padding:15px;
-  border-radius:8px;
-}
-.row{
-  display:flex;
-  justify-content:space-between;
-  margin:8px 0;
-}
-.total{
-  font-weight:bold;
-  font-size:18px;
-}
-/* CHECKOUT BUTTON */
-.checkout{
-  position:fixed;
-  bottom:0;
-  width:100%;
-  background:#9c27b0;
-  color:white;
-  text-align:center;
-  padding:14px;
-  font-weight:bold;
-}
-.space{
-  height:70px;
-}
+.remove{background:#ff4d4d;color:white;border:none;padding:4px 8px;border-radius:4px;cursor:pointer;margin-top:6px;}
+.total-section{background:white;padding:15px;margin-top:10px;display:flex;justify-content:space-between;align-items:center;font-size:18px;font-weight:bold;}
+.checkout-btn{width:100%;padding:14px;background:#9c27b0;color:white;text-align:center;text-decoration:none;font-weight:bold;display:block;margin-top:10px;border-radius:6px;}
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <div class="header">
   <a href="home.html">←</a>
   <div class="title">My Cart</div>
-  <a href="profile.html">👤</a>
+  <a href="wishlist.html">❤️</a>
 </div>
 
-<!-- CART PRODUCT -->
-<div class="cart-box" id="item1">
-  <img src="https://i.imgur.com/YR6P6Qy.jpeg" alt="Supercar Poster">
-  <div class="item-info">
-    <p>Supercar Wall Poster</p>
-    <div class="price">₹<span id="price1">258</span></div>
-    <div class="qty">
-      <button onclick="minus(1)">−</button>
-      <span id="qty1">1</span>
-      <button onclick="plus(1)">+</button>
-    </div>
-    <span class="remove" onclick="removeItem(1)">Remove</span>
-  </div>
+<div class="cart-container" id="cartContainer">
+  <!-- Cart items will be injected here by JS -->
 </div>
 
-<div class="cart-box" id="item2">
-  <img src="https://i.imgur.com/9N5QZQx.jpeg" alt="Photo Frame">
-  <div class="item-info">
-    <p>Photo Frame</p>
-    <div class="price">₹<span id="price2">199</span></div>
-    <div class="qty">
-      <button onclick="minus(2)">−</button>
-      <span id="qty2">1</span>
-      <button onclick="plus(2)">+</button>
-    </div>
-    <span class="remove" onclick="removeItem(2)">Remove</span>
-  </div>
+<div class="total-section">
+  <span>Total:</span>
+  <span id="totalPrice">₹0</span>
 </div>
 
-<!-- PRICE SUMMARY -->
-<div class="summary">
-  <div class="row"><span>Item Total</span><span>₹<span id="itemTotal">457</span></span></div>
-  <div class="row"><span>Delivery</span><span>₹40</span></div>
-  <div class="row total"><span>Total</span><span>₹<span id="grandTotal">497</span></span></div>
-</div>
-
-<div class="space"></div>
-
-<!-- CHECKOUT BUTTON -->
-<a href="review.html">
-  <div class="checkout">Continue to Checkout</div>
-</a>
+<a href="address.html" class="checkout-btn">Checkout</a>
 
 <script>
-let quantities = {1:1,2:1};
-let prices = {1:258,2:199};
-const delivery = 40;
+// Sample Cart Data
+let cartItems = [
+  {id:1,name:"Supercar Wall Poster",price:258,qty:1,img:"https://i.imgur.com/YR6P6Qy.jpeg"},
+  {id:2,name:"Bike Poster",price:299,qty:2,img:"https://i.imgur.com/YW6XK7N.jpeg"}
+];
 
-function updateTotals(){
-  let itemTotal = quantities[1]*prices[1] + quantities[2]*prices[2];
-  document.getElementById("qty1").innerText = quantities[1];
-  document.getElementById("qty2").innerText = quantities[2];
-  document.getElementById("itemTotal").innerText = itemTotal;
-  document.getElementById("grandTotal").innerText = itemTotal + delivery;
+const cartContainer = document.getElementById("cartContainer");
+const totalPrice = document.getElementById("totalPrice");
+
+function renderCart(){
+  cartContainer.innerHTML="";
+  let total=0;
+  cartItems.forEach(item=>{
+    total += item.price * item.qty;
+    let div = document.createElement("div");
+    div.className="cart-item";
+    div.innerHTML=`
+      <img src="${item.img}">
+      <div class="item-info">
+        <h4>${item.name}</h4>
+        <p>₹${item.price}</p>
+        <div class="qty">
+          <button onclick="changeQty(${item.id},-1)">-</button>
+          <span id="qty${item.id}">${item.qty}</span>
+          <button onclick="changeQty(${item.id},1)">+</button>
+        </div>
+        <button class="remove" onclick="removeItem(${item.id})">Remove</button>
+      </div>
+    `;
+    cartContainer.appendChild(div);
+  });
+  totalPrice.innerText = "₹"+total;
 }
 
-function plus(id){
-  quantities[id]++;
-  updateTotals();
-}
-
-function minus(id){
-  if(quantities[id]>1){
-    quantities[id]--;
-    updateTotals();
-  }
+function changeQty(id,delta){
+  cartItems = cartItems.map(item=>{
+    if(item.id===id){
+      item.qty += delta;
+      if(item.qty<1) item.qty=1;
+    }
+    return item;
+  });
+  renderCart();
 }
 
 function removeItem(id){
-  document.getElementById("item"+id).style.display="none";
-  quantities[id]=0;
-  updateTotals();
+  cartItems = cartItems.filter(item=>item.id!==id);
+  renderCart();
 }
+
+renderCart();
 </script>
 
 </body>
