@@ -4,20 +4,26 @@
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>My Wishlist</title>
+<title>Wishlist</title>
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+body{
 font-family:Arial;
+margin:0;
+background:#f5f5f5;
 }
 
-body{
-background:linear-gradient(#f7f7f7,#ececec);
+/* HEADER */
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px;
+background:white;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+font-size:20px;
 }
 
 a{
@@ -25,34 +31,18 @@ text-decoration:none;
 color:black;
 }
 
-/* HEADER */
+/* PRODUCT CARD */
 
-.header{
+.card{
 background:white;
-padding:12px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-box-shadow:0 2px 8px rgba(0,0,0,0.1);
-}
-
-.title{
-font-size:18px;
-font-weight:bold;
-}
-
-/* ITEM */
-
-.item{
-background:white;
-margin:12px;
-padding:12px;
-border-radius:10px;
+margin:10px;
+padding:10px;
+border-radius:8px;
 display:flex;
 gap:10px;
 }
 
-.item img{
+.card img{
 width:80px;
 border-radius:6px;
 }
@@ -66,24 +56,31 @@ font-weight:bold;
 margin-top:5px;
 }
 
-.remove{
-color:red;
-font-size:13px;
-margin-top:6px;
+/* BUTTONS */
+
+.btn{
+padding:6px 10px;
+border:none;
+border-radius:4px;
 cursor:pointer;
+margin-top:6px;
+margin-right:5px;
 }
 
-/* BUTTON */
-
-.shop{
-margin:15px;
-display:block;
-text-align:center;
-padding:12px;
+.cart{
 background:#9c27b0;
 color:white;
-border-radius:8px;
-font-weight:bold;
+}
+
+.remove{
+background:red;
+color:white;
+}
+
+.empty{
+text-align:center;
+margin-top:50px;
+font-size:18px;
 }
 
 </style>
@@ -94,73 +91,86 @@ font-weight:bold;
 
 <div class="header">
 
-<a href="home.html">←</a>
+<a href="home.html">⬅</a>
 
-<div class="title">
-My Wishlist
-</div>
+<div>Wishlist</div>
 
 <a href="cart.html">🛒</a>
 
 </div>
 
-<!-- ITEM 1 -->
-
-<div class="item" id="item1">
-
-<img src="https://i.imgur.com/YR6P6Qy.jpeg">
-
-<div class="info">
-
-<p>Supercar Wall Poster</p>
-
-<div class="price">
-₹258
-</div>
-
-<div class="remove" onclick="remove1()">
-Remove
-</div>
-
-</div>
-
-</div>
-
-<!-- ITEM 2 -->
-
-<div class="item" id="item2">
-
-<img src="https://i.imgur.com/9N5QZQx.jpeg">
-
-<div class="info">
-
-<p>Photo Frame</p>
-
-<div class="price">
-₹199
-</div>
-
-<div class="remove" onclick="remove2()">
-Remove
-</div>
-
-</div>
-
-</div>
-
-<a href="home.html" class="shop">
-Go Shopping
-</a>
+<div id="wishlistBox"></div>
 
 <script>
 
-function remove1(){
-document.getElementById("item1").style.display="none"
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || []
+
+function showWishlist(){
+
+let box=document.getElementById("wishlistBox")
+
+if(wishlist.length==0){
+box.innerHTML="<div class='empty'>No Wishlist Items</div>"
+return
 }
 
-function remove2(){
-document.getElementById("item2").style.display="none"
+box.innerHTML=""
+
+wishlist.forEach((p,index)=>{
+
+box.innerHTML+=`
+
+<div class="card">
+
+<img src="${p.image}">
+
+<div class="info">
+
+<p>${p.name}</p>
+
+<div class="price">₹${p.price}</div>
+
+<button class="btn cart" onclick="addCart(${index})">
+Add to Cart
+</button>
+
+<button class="btn remove" onclick="removeWish(${index})">
+Remove
+</button>
+
+</div>
+
+</div>
+
+`
+
+})
+
 }
+
+function removeWish(i){
+
+wishlist.splice(i,1)
+
+localStorage.setItem("wishlist",JSON.stringify(wishlist))
+
+showWishlist()
+
+}
+
+function addCart(i){
+
+let cart = JSON.parse(localStorage.getItem("cart")) || []
+
+cart.push(wishlist[i])
+
+localStorage.setItem("cart",JSON.stringify(cart))
+
+alert("Added to Cart")
+
+}
+
+showWishlist()
 
 </script>
 
