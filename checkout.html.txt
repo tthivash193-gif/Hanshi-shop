@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checkout</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#f5f5f5;
+}
+
+.header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:10px;
+background:white;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+font-size:20px;
+}
+
+a{
+text-decoration:none;
+color:black;
+}
+
+/* ADDRESS */
+
+.address{
+background:white;
+margin:10px;
+padding:15px;
+border-radius:8px;
+}
+
+input{
+width:100%;
+padding:10px;
+margin:6px 0;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+/* PAYMENT */
+
+.payment{
+background:white;
+margin:10px;
+padding:15px;
+border-radius:8px;
+}
+
+button{
+width:100%;
+padding:12px;
+margin-top:10px;
+border:none;
+border-radius:6px;
+font-size:16px;
+cursor:pointer;
+}
+
+.gpay{
+background:#0f9d58;
+color:white;
+}
+
+.cod{
+background:#9c27b0;
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<a href="cart.html">⬅</a>
+
+<div>Checkout</div>
+
+<a href="home.html">🏠</a>
+
+</div>
+
+<!-- ADDRESS -->
+
+<div class="address">
+
+<h3>Delivery Address</h3>
+
+<input placeholder="Full Name">
+
+<input placeholder="Mobile Number">
+
+<input placeholder="Address">
+
+<input placeholder="City">
+
+<input placeholder="Pincode">
+
+</div>
+
+<!-- PAYMENT -->
+
+<div class="payment">
+
+<h3>Payment Method</h3>
+
+<button class="gpay" onclick="payGpay()">
+Pay with GPay / UPI
+</button>
+
+<button class="cod" onclick="codOrder()">
+Cash on Delivery
+</button>
+
+</div>
+
+<script>
+
+function payGpay(){
+
+let upi="upi://pay?pa=9876543210@upi&pn=MiniMeesho&am=298&cu=INR"
+
+window.location=upi
+
+}
+
+function codOrder(){
+
+alert("Order Placed with Cash on Delivery")
+
+window.location="orders.html"
+
+}
+
+</script>
+
+</body>
+
+</html>
