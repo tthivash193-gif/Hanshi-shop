@@ -5,7 +5,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Payment</title>
+<title>Select Payment</title>
 
 <style>
 
@@ -17,7 +17,7 @@ font-family:Arial;
 }
 
 body{
-background:#f1f3f6;
+background:#f5f5f5;
 }
 
 a{
@@ -49,14 +49,14 @@ font-weight:bold;
 background:white;
 margin:10px;
 padding:15px;
-border-radius:10px;
+border-radius:8px;
 }
 
 .option{
 display:flex;
 align-items:center;
 gap:10px;
-margin:15px 0;
+margin:12px 0;
 font-size:16px;
 }
 
@@ -69,10 +69,8 @@ width:100%;
 background:#9c27b0;
 color:white;
 text-align:center;
-padding:15px;
+padding:14px;
 font-weight:bold;
-font-size:16px;
-cursor:pointer;
 }
 
 .space{
@@ -106,23 +104,31 @@ Select Payment
 <h3>Payment Methods</h3>
 
 <label class="option">
-<input type="radio" name="pay" value="cod">
+
+<input type="radio" name="pay">
 Cash on Delivery
+
 </label>
 
 <label class="option">
-<input type="radio" name="pay" value="upi">
-UPI / Google Pay / PhonePe
+
+<input type="radio" name="pay">
+UPI / Google Pay
+
 </label>
 
 <label class="option">
-<input type="radio" name="pay" value="card">
+
+<input type="radio" name="pay">
 Credit / Debit Card
+
 </label>
 
 <label class="option">
-<input type="radio" name="pay" value="netbank">
+
+<input type="radio" name="pay">
 Net Banking
+
 </label>
 
 </div>
@@ -131,67 +137,13 @@ Net Banking
 
 <!-- PLACE ORDER -->
 
-<div class="place" onclick="payNow()">
+<a href="success.html">
 
+<div class="place">
 Place Order
-
 </div>
 
-<script>
-
-function payNow(){
-
-let method=document.querySelector('input[name="pay"]:checked')
-
-if(!method){
-
-alert("Please select payment method")
-
-return
-
-}
-
-let value=method.value
-
-/* COD */
-
-if(value=="cod"){
-
-window.location="success.html"
-
-}
-
-/* UPI OPEN */
-
-if(value=="upi"){
-
-window.location="upi://pay?pa=demo@upi&pn=MiniMeesho&am=298&cu=INR"
-
-}
-
-/* CARD DEMO */
-
-if(value=="card"){
-
-alert("Card payment coming soon")
-
-window.location="success.html"
-
-}
-
-/* NETBANK DEMO */
-
-if(value=="netbank"){
-
-alert("Net Banking payment")
-
-window.location="success.html"
-
-}
-
-}
-
-</script>
+</a>
 
 </body>
 
