@@ -3,47 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Order Success</title>
+<title>My Orders</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
-body{
-  background:#f5f5f5;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
-  text-align:center;
-}
-.box{
+body{background:linear-gradient(#f7f7f7,#ececec);}
+a{text-decoration:none;color:black;}
+
+/* HEADER */
+.header{
   background:white;
-  padding:30px;
+  padding:12px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+.title{font-size:18px;font-weight:bold;}
+
+/* ORDER BOX */
+.order{
+  background:white;
+  margin:12px;
+  padding:12px;
   border-radius:10px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  display:flex;
+  gap:10px;
 }
-h1{
-  color:green;
-  margin-bottom:10px;
-}
-.btn{
-  margin-top:20px;
-  background:#9c27b0;
-  color:white;
-  padding:12px 20px;
+.order img{
+  width:80px;
   border-radius:6px;
-  display:inline-block;
 }
-a{
-  text-decoration:none;
-  color:white;
-}
+.info{flex:1;}
+.status{color:green;font-size:14px;margin-top:4px;}
+.price{font-weight:bold;margin-top:4px;}
 </style>
 </head>
 <body>
 
-<div class="box">
-  <h1>🎉 Order Placed!</h1>
-  <p>Your order was placed successfully.</p>
-  <a href="home.html" class="btn">Back to Home</a>
+<div class="header">
+  <a href="profile.html">←</a>
+  <div class="title">My Orders</div>
+  <a href="cart.html">🛒</a>
+</div>
+
+<!-- SAMPLE ORDER -->
+<div class="order">
+  <img src="https://i.imgur.com/YR6P6Qy.jpeg" alt="Supercar Poster">
+  <div class="info">
+    <p>Supercar Wall Poster</p>
+    <div class="price">₹258</div>
+    <div class="status">Delivered ✔</div>
+  </div>
+</div>
+
+<div class="order">
+  <img src="https://i.imgur.com/9N5QZQx.jpeg" alt="Photo Frame">
+  <div class="info">
+    <p>Photo Frame</p>
+    <div class="price">₹199</div>
+    <div class="status">Pending ⏳</div>
+  </div>
 </div>
 
 </body>
