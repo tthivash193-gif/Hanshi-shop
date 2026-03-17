@@ -2,149 +2,142 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mini Meesho Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultra Meesho Home - Pro Max</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
-body{
-  font-family:Arial;
-  margin:0;
-  background:#f5f5f5;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:linear-gradient(180deg,#f8f8f8,#ececec);}
+
 /* HEADER */
 .header{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:10px;
-  background:white;
-  box-shadow:0 2px 6px rgba(0,0,0,0.1);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 20px;background:white;position:sticky;top:0;z-index:10;
+  border-bottom:1px solid #eee;
 }
-.search{
-  flex:1;
+.menu-links{display:flex;gap:20px;}
+.menu-links a{
+  text-decoration:none;color:#333;font-weight:500;font-size:14px;position:relative;padding-bottom:5px;
 }
+.menu-links a::after{
+  content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:#9c27b0;transition:0.3s;
+}
+.menu-links a:hover::after{width:100%;}
+.search{flex:1;position:relative;margin-left:15px;}
 .search input{
-  width:100%;
-  padding:8px;
-  border-radius:6px;
-  border:1px solid #ccc;
-  cursor:pointer;
+  width:100%;padding:10px 40px 10px 15px;border-radius:25px;border:1px solid #ddd;font-size:14px;
 }
-.icons{
-  display:flex;
-  gap:10px;
-  font-size:20px;
-}
-.icons a{
-  text-decoration:none;
-}
+.search::after{content:'🔍';position:absolute;right:15px;top:50%;transform:translateY(-50%);font-size:16px;color:#aaa;}
+
+/* BANNER */
+.banner{position:relative;overflow:hidden;margin-bottom:10px;}
+.banner img{width:100%;display:block;border-radius:10px;transition:0.3s;}
+
+/* CATEGORIES */
+.categories{display:flex;overflow-x:auto;gap:12px;padding:12px;background:white;margin-bottom:10px;}
+.cat{text-align:center;min-width:70px;font-size:12px;cursor:pointer;transition:0.2s;}
+.cat img{width:60px;height:60px;border-radius:50%;border:1px solid #eee;padding:5px;transition:0.3s;}
+.cat:hover img{transform:scale(1.1);box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+
 /* PRODUCTS */
-.products{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
-  padding:10px;
-}
+.products{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 10px 70px;}
 .product{
-  background:white;
-  padding:10px;
-  border-radius:8px;
-  text-align:center;
+  background:white;border-radius:12px;overflow:hidden;
+  box-shadow:0 3px 10px rgba(0,0,0,0.06);cursor:pointer;transition:0.3s;
 }
-.product img{
-  width:100%;
-  border-radius:6px;
-}
-.price{
-  font-weight:bold;
-  margin-top:5px;
-}
-/* BOTTOM MENU */
+.product:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,0.12);}
+.product img{width:100%;border-bottom:1px solid #eee;}
+.info{padding:10px;}
+.name{font-size:14px;margin-bottom:6px;font-weight:500;}
+.price{font-weight:600;font-size:15px;}
+.old{text-decoration:line-through;color:#aaa;font-size:13px;margin-left:5px;}
+.off{color:green;font-size:13px;margin-left:5px;}
+
+/* BOTTOM NAV */
 .bottom{
-  position:fixed;
-  bottom:0;
-  width:100%;
-  background:white;
-  display:flex;
-  justify-content:space-around;
-  padding:10px;
-  border-top:1px solid #ddd;
+  position:fixed;bottom:0;width:100%;background:white;
+  display:flex;justify-content:space-around;padding:12px 0;border-top:1px solid #ddd;
+  box-shadow:0 -2px 8px rgba(0,0,0,0.06);
 }
-.bottom a{
-  text-decoration:none;
-  color:black;
-  font-size:14px;
-}
+.bottom div{text-align:center;font-size:12px;cursor:pointer;}
+.bottom div:hover{color:#9c27b0;}
+
+/* SCROLLBAR HIDE */
+.categories::-webkit-scrollbar{display:none;}
 </style>
 </head>
 <body>
 
 <!-- HEADER -->
 <div class="header">
-  <div class="search">
-    <input placeholder="Search products" onclick="window.location.href='search.html'">
+  <div class="menu-links">
+    <a href="home.html">Home</a>
+    <a href="categories.html">Categories</a>
+    <a href="orders.html">Orders</a>
+    <a href="profile.html">Profile</a>
   </div>
-  <div class="icons">
-    <a href="wishlist.html">❤️</a>
-    <a href="cart.html">🛒</a>
-    <a href="orders.html">📦</a>
-    <a href="profile.html">👤</a>
+  <div class="search">
+    <input type="text" id="searchBox" placeholder="Search products">
   </div>
 </div>
 
-<!-- WELCOME -->
-<div style="padding:10px;background:white;margin:10px;border-radius:8px;">
-  <span id="welcomeUser">Welcome!</span>
+<!-- BANNER -->
+<div class="banner">
+  <img src="https://i.imgur.com/YW6XK7N.jpeg" alt="Banner">
+</div>
+
+<!-- CATEGORIES -->
+<div class="categories">
+  <div class="cat"><img src="https://i.imgur.com/YR6P6Qy.jpeg"><p>Cars</p></div>
+  <div class="cat"><img src="https://i.imgur.com/YR6P6Qy.jpeg"><p>Gaming</p></div>
+  <div class="cat"><img src="https://i.imgur.com/YR6P6Qy.jpeg"><p>Bike</p></div>
+  <div class="cat"><img src="https://i.imgur.com/YR6P6Qy.jpeg"><p>Decor</p></div>
+  <div class="cat"><img src="https://i.imgur.com/YR6P6Qy.jpeg"><p>Clothes</p></div>
 </div>
 
 <!-- PRODUCTS -->
 <div class="products">
-  <a href="product.html">
-    <div class="product">
-      <img src="https://i.imgur.com/YR6P6Qy.jpeg" alt="Supercar Poster">
-      <p>Supercar Poster</p>
-      <div class="price">₹258</div>
+  <a href="product.html" class="product">
+    <img src="https://i.imgur.com/YR6P6Qy.jpeg">
+    <div class="info">
+      <p class="name">Supercar Poster</p>
+      <div class="price">₹258 <span class="old">314</span> <span class="off">18% off</span></div>
     </div>
   </a>
-
-  <a href="product.html">
-    <div class="product">
-      <img src="https://i.imgur.com/9N5QZQx.jpeg" alt="Photo Frame">
-      <p>Photo Frame</p>
-      <div class="price">₹199</div>
+  <a href="product.html" class="product">
+    <img src="https://i.imgur.com/YR6P6Qy.jpeg">
+    <div class="info">
+      <p class="name">Gaming Poster</p>
+      <div class="price">₹199 <span class="old">299</span> <span class="off">30% off</span></div>
     </div>
   </a>
-
-  <a href="product.html">
-    <div class="product">
-      <img src="https://i.imgur.com/vvL2q5v.jpeg" alt="Wall Shelf">
-      <p>Wall Shelf</p>
-      <div class="price">₹499</div>
-    </div>
-  </a>
-
-  <a href="product.html">
-    <div class="product">
-      <img src="https://i.imgur.com/1q9Z1Zm.jpeg" alt="LED Light">
-      <p>LED Light</p>
-      <div class="price">₹349</div>
+  <a href="product.html" class="product">
+    <img src="https://i.imgur.com/YR6P6Qy.jpeg">
+    <div class="info">
+      <p class="name">Bike Poster</p>
+      <div class="price">₹299 <span class="old">399</span> <span class="off">25% off</span></div>
     </div>
   </a>
 </div>
 
-<!-- BOTTOM MENU -->
+<!-- BOTTOM NAV -->
 <div class="bottom">
-  <a href="home.html">Home</a>
-  <a href="search.html">Search</a>
-  <a href="cart.html">Cart</a>
-  <a href="profile.html">Profile</a>
+  <div onclick="location.href='home.html'">🏠<p>Home</p></div>
+  <div onclick="location.href='categories.html'">📦<p>Categories</p></div>
+  <div onclick="location.href='orders.html'">📑<p>Orders</p></div>
+  <div onclick="location.href='profile.html'">👤<p>Profile</p></div>
 </div>
 
 <script>
-// Show logged-in user
-let userName = localStorage.getItem("user_name");
-if(userName){
-  document.getElementById("welcomeUser").innerText = "Welcome, " + userName + "!";
-}
+let search=document.getElementById("searchBox");
+search.addEventListener("keyup",function(){
+  let input=search.value.toLowerCase();
+  let products=document.querySelectorAll(".product");
+  products.forEach(function(p){
+    let name=p.querySelector(".name").innerText.toLowerCase();
+    p.style.display = name.includes(input) ? "block" : "none";
+  });
+});
 </script>
 
 </body>
