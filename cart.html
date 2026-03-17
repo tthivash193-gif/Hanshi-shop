@@ -1,236 +1,196 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>My Cart</title>
-
 <style>
-
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial;
+}
 body{
-font-family:Arial;
-margin:0;
-background:#f5f5f5;
+  background:linear-gradient(#f7f7f7,#ececec);
 }
-
-.header{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:10px;
-background:white;
-box-shadow:0 2px 6px rgba(0,0,0,0.1);
-font-size:20px;
-}
-
 a{
-text-decoration:none;
-color:black;
+  text-decoration:none;
+  color:black;
 }
-
+/* HEADER */
+.header{
+  background:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+  position:sticky;
+  top:0;
+}
+.title{
+  font-size:18px;
+  font-weight:bold;
+}
+/* CART ITEM */
 .cart-box{
-background:white;
-margin:10px;
-padding:10px;
-border-radius:8px;
-display:flex;
-gap:10px;
+  background:white;
+  margin:10px;
+  padding:12px;
+  display:flex;
+  gap:10px;
+  border-radius:8px;
 }
-
 .cart-box img{
-width:90px;
-border-radius:6px;
+  width:90px;
+  border-radius:6px;
 }
-
-.info{
-flex:1;
+.item-info{
+  flex:1;
 }
-
 .price{
-font-weight:bold;
-margin-top:5px;
+  font-weight:bold;
+  margin-top:5px;
 }
-
+/* QUANTITY */
 .qty{
-display:flex;
-align-items:center;
-gap:10px;
-margin-top:8px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:8px;
 }
-
 .qty button{
-padding:4px 10px;
-font-size:16px;
-border:none;
-background:#eee;
-border-radius:4px;
-cursor:pointer;
+  padding:4px 10px;
+  font-size:16px;
+  border:none;
+  background:#eee;
+  border-radius:4px;
+  cursor:pointer;
 }
-
+/* REMOVE */
 .remove{
-color:red;
-font-size:13px;
-margin-top:6px;
-cursor:pointer;
+  color:red;
+  font-size:13px;
+  margin-top:6px;
+  display:inline-block;
+  cursor:pointer;
 }
-
 /* SUMMARY */
-
 .summary{
-background:white;
-margin:10px;
-padding:15px;
-border-radius:8px;
+  background:white;
+  margin:10px;
+  padding:15px;
+  border-radius:8px;
 }
-
 .row{
-display:flex;
-justify-content:space-between;
-margin:8px 0;
+  display:flex;
+  justify-content:space-between;
+  margin:8px 0;
 }
-
 .total{
-font-weight:bold;
-font-size:18px;
+  font-weight:bold;
+  font-size:18px;
 }
-
-/* CHECKOUT */
-
+/* CHECKOUT BUTTON */
 .checkout{
-position:fixed;
-bottom:0;
-width:100%;
-background:#9c27b0;
-color:white;
-text-align:center;
-padding:14px;
-font-weight:bold;
+  position:fixed;
+  bottom:0;
+  width:100%;
+  background:#9c27b0;
+  color:white;
+  text-align:center;
+  padding:14px;
+  font-weight:bold;
 }
-
 .space{
-height:70px;
+  height:70px;
 }
-
 </style>
-
 </head>
-
 <body>
 
+<!-- HEADER -->
 <div class="header">
-
-<a href="home.html">⬅</a>
-
-<div>My Cart</div>
-
-<a href="orders.html">📦</a>
-
+  <a href="home.html">←</a>
+  <div class="title">My Cart</div>
+  <a href="profile.html">👤</a>
 </div>
 
 <!-- CART PRODUCT -->
-
-<div class="cart-box" id="item">
-
-<img src="https://i.imgur.com/YR6P6Qy.jpeg">
-
-<div class="info">
-
-<p>Supercar Wall Poster</p>
-
-<div class="price">
-₹<span id="price">258</span>
+<div class="cart-box" id="item1">
+  <img src="https://i.imgur.com/YR6P6Qy.jpeg" alt="Supercar Poster">
+  <div class="item-info">
+    <p>Supercar Wall Poster</p>
+    <div class="price">₹<span id="price1">258</span></div>
+    <div class="qty">
+      <button onclick="minus(1)">−</button>
+      <span id="qty1">1</span>
+      <button onclick="plus(1)">+</button>
+    </div>
+    <span class="remove" onclick="removeItem(1)">Remove</span>
+  </div>
 </div>
 
-<div class="qty">
-
-<button onclick="minus()">−</button>
-
-<span id="qty">1</span>
-
-<button onclick="plus()">+</button>
-
+<div class="cart-box" id="item2">
+  <img src="https://i.imgur.com/9N5QZQx.jpeg" alt="Photo Frame">
+  <div class="item-info">
+    <p>Photo Frame</p>
+    <div class="price">₹<span id="price2">199</span></div>
+    <div class="qty">
+      <button onclick="minus(2)">−</button>
+      <span id="qty2">1</span>
+      <button onclick="plus(2)">+</button>
+    </div>
+    <span class="remove" onclick="removeItem(2)">Remove</span>
+  </div>
 </div>
 
-<div class="remove" onclick="removeItem()">
-Remove
-</div>
-
-</div>
-
-</div>
-
-<!-- SUMMARY -->
-
+<!-- PRICE SUMMARY -->
 <div class="summary">
-
-<div class="row">
-<span>Item Total</span>
-<span>₹<span id="itemTotal">258</span></span>
-</div>
-
-<div class="row">
-<span>Delivery</span>
-<span>₹40</span>
-</div>
-
-<div class="row total">
-<span>Total</span>
-<span>₹<span id="grandTotal">298</span></span>
-</div>
-
+  <div class="row"><span>Item Total</span><span>₹<span id="itemTotal">457</span></span></div>
+  <div class="row"><span>Delivery</span><span>₹40</span></div>
+  <div class="row total"><span>Total</span><span>₹<span id="grandTotal">497</span></span></div>
 </div>
 
 <div class="space"></div>
 
-<a href="checkout.html">
-
-<div class="checkout">
-Proceed to Checkout
-</div>
-
+<!-- CHECKOUT BUTTON -->
+<a href="review.html">
+  <div class="checkout">Continue to Checkout</div>
 </a>
 
 <script>
+let quantities = {1:1,2:1};
+let prices = {1:258,2:199};
+const delivery = 40;
 
-let quantity=1
-let price=258
-let delivery=40
-
-function updatePrice(){
-
-let itemTotal=price*quantity
-let total=itemTotal+delivery
-
-document.getElementById("qty").innerText=quantity
-document.getElementById("itemTotal").innerText=itemTotal
-document.getElementById("grandTotal").innerText=total
-
+function updateTotals(){
+  let itemTotal = quantities[1]*prices[1] + quantities[2]*prices[2];
+  document.getElementById("qty1").innerText = quantities[1];
+  document.getElementById("qty2").innerText = quantities[2];
+  document.getElementById("itemTotal").innerText = itemTotal;
+  document.getElementById("grandTotal").innerText = itemTotal + delivery;
 }
 
-function plus(){
-quantity++
-updatePrice()
+function plus(id){
+  quantities[id]++;
+  updateTotals();
 }
 
-function minus(){
-if(quantity>1){
-quantity--
-updatePrice()
-}
-}
-
-function removeItem(){
-
-document.getElementById("item").style.display="none"
-
-document.getElementById("itemTotal").innerText="0"
-document.getElementById("grandTotal").innerText="0"
-
+function minus(id){
+  if(quantities[id]>1){
+    quantities[id]--;
+    updateTotals();
+  }
 }
 
+function removeItem(id){
+  document.getElementById("item"+id).style.display="none";
+  quantities[id]=0;
+  updateTotals();
+}
 </script>
 
 </body>
-
 </html>
