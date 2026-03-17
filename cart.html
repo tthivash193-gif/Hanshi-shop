@@ -17,7 +17,7 @@ font-family:Arial;
 }
 
 body{
-background:#f1f3f6;
+background:linear-gradient(#f7f7f7,#ececec);
 }
 
 a{
@@ -51,8 +51,7 @@ margin:10px;
 padding:12px;
 display:flex;
 gap:10px;
-border-radius:10px;
-box-shadow:0 2px 6px rgba(0,0,0,0.08);
+border-radius:8px;
 }
 
 .cart-box img{
@@ -103,7 +102,7 @@ cursor:pointer;
 background:white;
 margin:10px;
 padding:15px;
-border-radius:10px;
+border-radius:8px;
 }
 
 .row{
@@ -126,20 +125,12 @@ width:100%;
 background:#9c27b0;
 color:white;
 text-align:center;
-padding:15px;
+padding:14px;
 font-weight:bold;
-font-size:16px;
-cursor:pointer;
 }
 
 .space{
 height:70px;
-}
-
-.empty{
-text-align:center;
-margin-top:60px;
-color:gray;
 }
 
 </style>
@@ -199,40 +190,19 @@ Remove
 <div class="summary">
 
 <div class="row">
-
 <span>Item Total</span>
-
 <span>₹<span id="itemTotal">258</span></span>
-
 </div>
 
 <div class="row">
-
 <span>Delivery</span>
-
 <span>₹40</span>
-
 </div>
 
 <div class="row total">
-
 <span>Total</span>
-
 <span>₹<span id="grandTotal">298</span></span>
-
 </div>
-
-</div>
-
-<div id="emptyCart" class="empty" style="display:none">
-
-<h2>🛒 Cart is Empty</h2>
-
-<p style="margin-top:10px;">Start shopping now</p>
-
-<a href="home.html" style="color:#9c27b0;">
-Go to Home
-</a>
 
 </div>
 
@@ -240,11 +210,13 @@ Go to Home
 
 <!-- CHECKOUT BUTTON -->
 
-<div class="checkout" onclick="checkout()">
+<a href="review.html">
 
+<div class="checkout">
 Continue to Checkout
-
 </div>
+
+</a>
 
 <script>
 
@@ -264,36 +236,23 @@ document.getElementById("grandTotal").innerText = total
 }
 
 function plus(){
-
 quantity++
 updatePrice()
-
 }
 
 function minus(){
-
 if(quantity>1){
-
 quantity--
 updatePrice()
-
 }
-
 }
 
 function removeItem(){
 
 document.getElementById("item").style.display="none"
 
-document.querySelector(".summary").style.display="none"
-
-document.getElementById("emptyCart").style.display="block"
-
-}
-
-function checkout(){
-
-window.location="review.html"
+document.getElementById("itemTotal").innerText = "0"
+document.getElementById("grandTotal").innerText = "0"
 
 }
 
