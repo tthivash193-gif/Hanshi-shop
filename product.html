@@ -4,44 +4,25 @@
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Product</title>
+<title>Product Details</title>
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial;
-}
-
 body{
-background:#f1f3f6;
+font-family:Arial;
+margin:0;
+background:#f5f5f5;
 }
 
 /* HEADER */
 
 .header{
-background:white;
 display:flex;
-justify-content:space-between;
 align-items:center;
-padding:12px;
-box-shadow:0 2px 8px rgba(0,0,0,0.1);
-position:sticky;
-top:0;
-}
-
-.left{
-display:flex;
-gap:12px;
-font-size:22px;
-}
-
-.right{
-display:flex;
-gap:15px;
+justify-content:space-between;
+padding:10px;
+background:white;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
 font-size:20px;
 }
 
@@ -50,135 +31,58 @@ text-decoration:none;
 color:black;
 }
 
-/* PRODUCT IMAGE */
+/* PRODUCT */
 
-.product-img{
-background:white;
+.product{
+padding:10px;
 }
 
-.product-img img{
-width:100%;
-}
-
-/* DETAILS */
-
-.details{
-background:white;
-padding:15px;
-margin-top:8px;
-}
-
-.price{
-font-size:24px;
-font-weight:bold;
-}
-
-.old{
-text-decoration:line-through;
-color:gray;
-margin-left:6px;
-}
-
-.off{
-color:green;
-margin-left:6px;
-}
-
-.title{
-margin-top:10px;
-font-size:16px;
-}
-
-.rating{
-margin-top:6px;
-color:#ff9800;
-}
-
-/* QUANTITY */
-
-.qty-box{
-margin-top:10px;
-display:flex;
-gap:10px;
-align-items:center;
-}
-
-.qty-box button{
-padding:6px 12px;
-font-size:16px;
-border:none;
-background:#eee;
-border-radius:4px;
-cursor:pointer;
-}
-
-/* SECTION */
-
-.section{
-background:white;
-padding:15px;
-margin-top:8px;
-}
-
-/* RELATED */
-
-.related{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
-margin-top:10px;
-}
-
-.related a{
-text-decoration:none;
-color:black;
-}
-
-.related img{
+.product img{
 width:100%;
 border-radius:8px;
 }
 
-.related p{
-font-size:14px;
+.name{
+font-size:18px;
+margin-top:10px;
+}
+
+.price{
+font-size:20px;
+font-weight:bold;
+margin-top:5px;
+}
+
+.desc{
+margin-top:10px;
+color:#555;
 }
 
 /* BUTTONS */
 
 .buttons{
-position:fixed;
-bottom:0;
-width:100%;
 display:flex;
+gap:10px;
+margin-top:20px;
+}
+
+button{
+flex:1;
+padding:12px;
+border:none;
+border-radius:6px;
+font-size:16px;
+cursor:pointer;
 }
 
 .cart{
-flex:1;
-padding:14px;
 background:#ff9800;
 color:white;
-text-align:center;
-font-weight:bold;
-cursor:pointer;
 }
 
 .buy{
-flex:1;
-padding:14px;
 background:#9c27b0;
 color:white;
-text-align:center;
-font-weight:bold;
-cursor:pointer;
-}
-
-.space{
-height:70px;
-}
-
-.wishlist{
-font-size:22px;
-cursor:pointer;
 }
 
 </style>
@@ -191,128 +95,41 @@ cursor:pointer;
 
 <div class="header">
 
-<div class="left">
+<a href="home.html">⬅</a>
 
-<a href="home.html">←</a>
+<div>Product</div>
 
-</div>
-
-<div class="right">
-
-<span class="wishlist" onclick="addWishlist()">❤️</span>
-
-<a href="cart.html">🛒</a>
+<a href="wishlist.html">❤️</a>
 
 </div>
 
-</div>
+<!-- PRODUCT -->
 
-<!-- PRODUCT IMAGE -->
-
-<div class="product-img">
+<div class="product">
 
 <img src="https://i.imgur.com/YR6P6Qy.jpeg">
 
+<div class="name">
+Supercar Wall Poster
 </div>
-
-<!-- DETAILS -->
-
-<div class="details">
 
 <div class="price">
-
 ₹258
-
-<span class="old">₹314</span>
-
-<span class="off">18% off</span>
-
 </div>
 
-<div class="title">
-
-Supercar Wall Poster for Room Decoration
-
+<div class="desc">
+High quality supercar wall poster. Perfect for room decoration.
 </div>
-
-<div class="rating">
-
-⭐⭐⭐⭐☆ (245 Reviews)
-
-</div>
-
-<!-- QUANTITY -->
-
-<div class="qty-box">
-
-<button onclick="minus()">-</button>
-
-<span id="qty">1</span>
-
-<button onclick="plus()">+</button>
-
-</div>
-
-</div>
-
-<!-- DESCRIPTION -->
-
-<div class="section">
-
-<h3>Product Details</h3>
-
-<p>
-
-High quality wall poster perfect for room decoration.
-Premium print quality with long lasting colors.
-
-</p>
-
-</div>
-
-<!-- RELATED PRODUCTS -->
-
-<div class="section">
-
-<h3>Similar Products</h3>
-
-<div class="related">
-
-<a href="product.html">
-
-<img src="https://i.imgur.com/YR6P6Qy.jpeg">
-
-<p>Gaming Poster ₹199</p>
-
-</a>
-
-<a href="product.html">
-
-<img src="https://i.imgur.com/YR6P6Qy.jpeg">
-
-<p>Bike Poster ₹299</p>
-
-</a>
-
-</div>
-
-</div>
-
-<div class="space"></div>
-
-<!-- BUTTONS -->
 
 <div class="buttons">
 
-<div class="cart" onclick="addCart()">
-
+<button class="cart" onclick="addCart()">
 Add to Cart
+</button>
 
-</div>
-
-<div class="buy" onclick="buyNow()">
-
+<button class="buy" onclick="buyNow()">
 Buy Now
+</button>
 
 </div>
 
@@ -320,31 +137,9 @@ Buy Now
 
 <script>
 
-let quantity = 1
-
-function plus(){
-
-quantity++
-
-document.getElementById("qty").innerText = quantity
-
-}
-
-function minus(){
-
-if(quantity>1){
-
-quantity--
-
-document.getElementById("qty").innerText = quantity
-
-}
-
-}
-
 function addCart(){
 
-alert("Product Added to Cart 🛒")
+alert("Added to cart")
 
 window.location="cart.html"
 
@@ -352,13 +147,7 @@ window.location="cart.html"
 
 function buyNow(){
 
-window.location="review.html"
-
-}
-
-function addWishlist(){
-
-alert("Added to Wishlist ❤️")
+window.location="cart.html"
 
 }
 
