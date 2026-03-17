@@ -3,149 +3,101 @@
 
 <head>
 
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Mini Meesho</title>
 
 <style>
 
-body{
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
 font-family:Arial;
+}
+
+body{
 background:#f5f5f5;
 }
 
 /* HEADER */
 
-header{
-background:#e60023;
-color:white;
-padding:12px;
-display:flex;
-flex-direction:column;
-}
+.header{
 
-.topbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.topbar a{
-color:white;
-text-decoration:none;
-font-size:20px;
-}
-
-.search{
 background:white;
 padding:10px;
-border-radius:20px;
-margin-top:10px;
+display:flex;
+align-items:center;
+gap:10px;
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
+
+}
+
+/* SEARCH */
+
+.search{
+
+flex:1;
+
 }
 
 .search input{
-border:none;
-outline:none;
+
 width:100%;
-font-size:16px;
+padding:8px;
+border-radius:6px;
+border:1px solid #ddd;
+
 }
 
-/* BANNER */
+/* ICONS */
 
-.banner{
-margin:10px;
-}
+.icons{
 
-.banner img{
-width:100%;
-border-radius:10px;
-}
-
-/* CATEGORIES */
-
-.categories{
 display:flex;
-overflow:auto;
-padding:10px;
-gap:15px;
+gap:10px;
+font-size:20px;
+
 }
 
-.cat{
-text-align:center;
-font-size:12px;
-}
+.icons a{
 
-.cat img{
-width:70px;
-height:70px;
-border-radius:50%;
-}
+text-decoration:none;
 
-/* SALE */
-
-.sale{
-background:gold;
-padding:10px;
-margin:10px;
-border-radius:10px;
-font-weight:bold;
 }
 
 /* PRODUCTS */
 
 .products{
+
 display:grid;
 grid-template-columns:repeat(2,1fr);
 gap:10px;
 padding:10px;
+
 }
 
-.card{
+.product{
+
 background:white;
-border-radius:10px;
 padding:10px;
-box-shadow:0 2px 6px rgba(0,0,0,0.1);
+border-radius:8px;
+text-align:center;
+
 }
 
-.card img{
+.product img{
+
 width:100%;
-border-radius:10px;
-}
+border-radius:6px;
 
-.name{
-font-size:14px;
-margin-top:6px;
 }
 
 .price{
-color:green;
+
 font-weight:bold;
-}
+margin-top:5px;
 
-/* BOTTOM MENU */
-
-.bottom{
-position:fixed;
-bottom:0;
-width:100%;
-background:white;
-display:flex;
-justify-content:space-around;
-padding:10px;
-border-top:1px solid #ddd;
-}
-
-.bottom a{
-text-decoration:none;
-color:black;
-font-size:14px;
-text-align:center;
-}
-
-.space{
-height:70px;
 }
 
 </style>
@@ -156,211 +108,118 @@ height:70px;
 
 <!-- HEADER -->
 
-<header>
+<div class="header">
 
-<div class="topbar">
+<div class="search">
 
-<h3>Mini Meesho</h3>
+<input id="search" placeholder="Search products">
 
-<div>
+</div>
+
+<div class="icons">
+
+<a href="wishlist.html">❤️</a>
 
 <a href="cart.html">🛒</a>
+
+<a href="orders.html">📦</a>
+
 <a href="profile.html">👤</a>
 
 </div>
 
 </div>
 
-<div class="search">
-
-<input type="text" id="searchBox"
-placeholder="Search products"
-onkeyup="searchProduct()">
-
-</div>
-
-</header>
-
-<!-- BANNER -->
-
-<div class="banner">
-
-<img src="https://i.imgur.com/YW6XK7N.jpeg">
-
-</div>
-
-<!-- CATEGORIES -->
-
-<div class="categories">
-
-<div class="cat">
-<a href="fashion.html">
-<img src="https://i.imgur.com/7QFZ6Yb.png">
-</a>
-<p>Fashion</p>
-</div>
-
-<div class="cat">
-<a href="beauty.html">
-<img src="https://i.imgur.com/6Iej2c3.png">
-</a>
-<p>Beauty</p>
-</div>
-
-<div class="cat">
-<a href="kids.html">
-<img src="https://i.imgur.com/9s9E0Jv.png">
-</a>
-<p>Kids</p>
-</div>
-
-<div class="cat">
-<a href="kitchen.html">
-<img src="https://i.imgur.com/HnLx5Kf.png">
-</a>
-<p>Kitchen</p>
-</div>
-
-</div>
-
-<!-- SALE -->
-
-<div class="sale">
-
-Sale ends in  
-<span id="timer">03:41:37</span>
-
-</div>
-
 <!-- PRODUCTS -->
 
-<div class="products" id="productList">
-
-<div class="card">
+<div class="products" id="products">
 
 <a href="product.html">
+
+<div class="product">
+
 <img src="https://i.imgur.com/YR6P6Qy.jpeg">
-</a>
 
-<p class="name">Hair Clips</p>
-<p class="price">₹99</p>
+<p>Supercar Poster</p>
+
+<div class="price">₹258</div>
 
 </div>
 
-<div class="card">
+</a>
 
 <a href="product.html">
+
+<div class="product">
+
 <img src="https://i.imgur.com/9N5QZQx.jpeg">
-</a>
 
-<p class="name">Photo Frame</p>
-<p class="price">₹199</p>
+<p>Photo Frame</p>
 
-</div>
-
-<div class="card">
-
-<a href="product.html">
-<img src="https://i.imgur.com/m8p9Y0p.jpeg">
-</a>
-
-<p class="name">Baking Tools</p>
-<p class="price">₹299</p>
+<div class="price">₹199</div>
 
 </div>
 
-<div class="card">
+</a>
 
 <a href="product.html">
+
+<div class="product">
+
 <img src="https://i.imgur.com/vvL2q5v.jpeg">
-</a>
 
-<p class="name">Wall Shelf</p>
-<p class="price">₹499</p>
+<p>Wall Shelf</p>
 
-</div>
+<div class="price">₹499</div>
 
 </div>
 
-<div class="space"></div>
-
-<!-- BOTTOM MENU -->
-
-<div class="bottom">
-
-<a href="home.html">
-🏠<br>Home
 </a>
 
-<a href="categories.html">
-📂<br>Categories
-</a>
+<a href="product.html">
 
-<a href="orders.html">
-📦<br>Orders
-</a>
+<div class="product">
 
-<a href="profile.html">
-👤<br>Profile
+<img src="https://i.imgur.com/1q9Z1Zm.jpeg">
+
+<p>LED Light</p>
+
+<div class="price">₹349</div>
+
+</div>
+
 </a>
 
 </div>
 
 <script>
 
-/* SEARCH */
+/* SEARCH FILTER */
 
-function searchProduct(){
+let input = document.getElementById("search")
 
-let input=document
-.getElementById("searchBox")
-.value.toLowerCase()
+input.addEventListener("keyup", function(){
 
-let cards=document
-.querySelectorAll(".card")
+let filter = input.value.toLowerCase()
 
-cards.forEach(function(card){
+let products = document.querySelectorAll(".product")
 
-let name=card
-.querySelector(".name")
-.innerText.toLowerCase()
+products.forEach(function(p){
 
-if(name.includes(input)){
+let text = p.innerText.toLowerCase()
 
-card.style.display="block"
-
+if(text.includes(filter)){
+p.style.display="block"
 }else{
-
-card.style.display="none"
-
+p.style.display="none"
 }
 
 })
 
-}
-
-/* SALE TIMER */
-
-let time=3*3600+41*60+37
-
-setInterval(function(){
-
-let h=Math.floor(time/3600)
-let m=Math.floor((time%3600)/60)
-let s=time%60
-
-document.getElementById("timer").innerHTML=
-h+"h : "+m+"m : "+s+"s"
-
-time--
-
-if(time<0){
-time=0
-}
-
-},1000)
+})
 
 </script>
 
 </body>
+
 </html>
