@@ -1,103 +1,60 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Mini Meesho</title>
+<title>Mini Meesho Login</title>
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial;
-}
-
 body{
+font-family:Arial;
 background:#f5f5f5;
-}
-
-/* HEADER */
-
-.header{
-
-background:white;
-padding:10px;
 display:flex;
+justify-content:center;
 align-items:center;
-gap:10px;
-box-shadow:0 2px 8px rgba(0,0,0,0.1);
-
+height:100vh;
+margin:0;
 }
 
-/* SEARCH */
-
-.search{
-
-flex:1;
-
-}
-
-.search input{
-
-width:100%;
-padding:8px;
-border-radius:6px;
-border:1px solid #ddd;
-
-}
-
-/* ICONS */
-
-.icons{
-
-display:flex;
-gap:10px;
-font-size:20px;
-
-}
-
-.icons a{
-
-text-decoration:none;
-
-}
-
-/* PRODUCTS */
-
-.products{
-
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:10px;
-padding:10px;
-
-}
-
-.product{
-
+.container{
 background:white;
-padding:10px;
-border-radius:8px;
+padding:25px;
+border-radius:10px;
+width:280px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
 text-align:center;
-
 }
 
-.product img{
+h2{
+margin-bottom:15px;
+}
 
+input{
 width:100%;
+padding:10px;
+margin:6px 0;
 border-radius:6px;
-
+border:1px solid #ccc;
 }
 
-.price{
-
+button{
+width:100%;
+padding:10px;
+margin-top:10px;
+border:none;
+border-radius:6px;
+background:#9c27b0;
+color:white;
 font-weight:bold;
-margin-top:5px;
+cursor:pointer;
+}
 
+.switch{
+margin-top:10px;
+font-size:14px;
+color:#555;
+cursor:pointer;
 }
 
 </style>
@@ -106,120 +63,87 @@ margin-top:5px;
 
 <body>
 
-<!-- HEADER -->
+<div class="container">
 
-<div class="header">
+<h2 id="title">Login</h2>
 
-<div class="search">
+<input type="email" id="email" placeholder="Email">
 
-<input id="search" placeholder="Search products">
+<input type="password" id="password" placeholder="Password">
 
+<button onclick="login()">Login</button>
+
+<div class="switch" onclick="showSignup()">
+New user? Signup
 </div>
-
-<div class="icons">
-
-<a href="wishlist.html">❤️</a>
-
-<a href="cart.html">🛒</a>
-
-<a href="orders.html">📦</a>
-
-<a href="profile.html">👤</a>
-
-</div>
-
-</div>
-
-<!-- PRODUCTS -->
-
-<div class="products" id="products">
-
-<a href="product.html">
-
-<div class="product">
-
-<img src="https://i.imgur.com/YR6P6Qy.jpeg">
-
-<p>Supercar Poster</p>
-
-<div class="price">₹258</div>
-
-</div>
-
-</a>
-
-<a href="product.html">
-
-<div class="product">
-
-<img src="https://i.imgur.com/9N5QZQx.jpeg">
-
-<p>Photo Frame</p>
-
-<div class="price">₹199</div>
-
-</div>
-
-</a>
-
-<a href="product.html">
-
-<div class="product">
-
-<img src="https://i.imgur.com/vvL2q5v.jpeg">
-
-<p>Wall Shelf</p>
-
-<div class="price">₹499</div>
-
-</div>
-
-</a>
-
-<a href="product.html">
-
-<div class="product">
-
-<img src="https://i.imgur.com/1q9Z1Zm.jpeg">
-
-<p>LED Light</p>
-
-<div class="price">₹349</div>
-
-</div>
-
-</a>
 
 </div>
 
 <script>
 
-/* SEARCH FILTER */
+let mode="login"
 
-let input = document.getElementById("search")
+function showSignup(){
 
-input.addEventListener("keyup", function(){
+mode="signup"
 
-let filter = input.value.toLowerCase()
+document.getElementById("title").innerText="Signup"
 
-let products = document.querySelectorAll(".product")
+document.querySelector("button").innerText="Signup"
 
-products.forEach(function(p){
+document.querySelector(".switch").innerText="Already have account? Login"
 
-let text = p.innerText.toLowerCase()
+document.querySelector(".switch").onclick=showLogin
 
-if(text.includes(filter)){
-p.style.display="block"
-}else{
-p.style.display="none"
 }
 
-})
+function showLogin(){
 
-})
+mode="login"
+
+document.getElementById("title").innerText="Login"
+
+document.querySelector("button").innerText="Login"
+
+document.querySelector(".switch").innerText="New user? Signup"
+
+document.querySelector(".switch").onclick=showSignup
+
+}
+
+function login(){
+
+let email=document.getElementById("email").value
+let pass=document.getElementById("password").value
+
+if(mode==="signup"){
+
+localStorage.setItem("userEmail",email)
+localStorage.setItem("userPass",pass)
+
+alert("Signup Success! Now Login")
+
+showLogin()
+
+return
+}
+
+let savedEmail=localStorage.getItem("userEmail")
+let savedPass=localStorage.getItem("userPass")
+
+if(email===savedEmail && pass===savedPass){
+
+window.location="home.html"
+
+}else{
+
+alert("Wrong Login")
+
+}
+
+}
 
 </script>
 
 </body>
-
 </html>
