@@ -2,137 +2,153 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Product Detail</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultra Pro Max Product</title>
 <style>
-body{
+*{
   margin:0;
-  font-family:Arial;
-  background:#f4f4f4;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+body{
+  background:#f7f7f7;
 }
 /* HEADER */
 .header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:12px;
+  padding:12px 15px;
   background:white;
-  box-shadow:0 2px 10px rgba(0,0,0,0.08);
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+  position:sticky;
+  top:0;
+  z-index:10;
 }
-.icons a{
-  margin-left:16px;
-  font-size:20px;
+.header a{
   text-decoration:none;
+  color:black;
+  font-size:20px;
 }
-/* MAIN IMAGE */
-.main-img{
-  background:white;
-  padding:10px;
+.header .title{
+  font-size:18px;
+  font-weight:bold;
 }
-.main-img img{
+/* SWIPE IMAGES */
+.swipe-container{
+  position:relative;
   width:100%;
-  border-radius:12px;
-}
-/* THUMBNAILS */
-.thumbs{
-  display:flex;
-  gap:10px;
-  padding:10px;
+  overflow:hidden;
   background:white;
-  overflow-x:auto;
 }
-.thumbs img{
-  width:70px;
-  border-radius:10px;
-  border:2px solid #ddd;
+.swipe-container img{
+  width:100%;
+  display:block;
+  transition:transform 0.3s ease;
+}
+.swipe-buttons{
+  position:absolute;
+  top:50%;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  transform:translateY(-50%);
+  padding:0 10px;
+}
+.swipe-buttons span{
+  background:rgba(0,0,0,0.3);
+  color:white;
+  font-size:24px;
+  padding:8px 12px;
+  border-radius:50%;
   cursor:pointer;
 }
-/* DETAILS */
+
+/* PRODUCT DETAILS */
 .details{
   background:white;
+  margin-top:8px;
   padding:15px;
-  margin-top:8px;
 }
-.mall{
-  background:#9c27b0;
-  color:white;
-  font-size:12px;
-  padding:4px 8px;
-  border-radius:6px;
-}
-.title{
-  margin-top:6px;
-  font-size:16px;
-  color:#333;
-}
-.rating{
-  margin-top:6px;
-  color:#ff9800;
-  font-size:14px;
-}
-.price{
-  font-size:28px;
+.details .price{
+  font-size:22px;
   font-weight:bold;
-  margin-top:8px;
 }
-.old{
+.details .old{
   text-decoration:line-through;
   color:gray;
-  margin-left:8px;
+  margin-left:6px;
 }
-.off{
+.details .off{
   color:green;
-  margin-left:8px;
+  margin-left:6px;
 }
-/* SIMILAR PRODUCTS */
-.similar{
+.details .title{
+  font-size:16px;
+  margin-top:8px;
+}
+.details .rating{
+  color:#ff9800;
+  margin-top:6px;
+}
+
+/* RELATED PRODUCTS */
+.related-section{
   background:white;
-  padding:12px;
   margin-top:10px;
+  padding:15px;
 }
-.products{
+.related-section h3{
+  margin-bottom:12px;
+}
+.related{
   display:flex;
   gap:10px;
   overflow-x:auto;
 }
-.products img{
-  width:95px;
+.related a{
+  min-width:120px;
+  background:white;
   border-radius:10px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.08);
+  text-align:center;
+  flex-shrink:0;
+  text-decoration:none;
+  color:black;
 }
-/* BUTTON BAR */
-.bar{
+.related img{
+  width:100%;
+  border-radius:10px 10px 0 0;
+}
+.related p{
+  font-size:14px;
+  padding:5px;
+}
+
+/* BUTTONS */
+.buttons{
   position:fixed;
   bottom:0;
   width:100%;
   display:flex;
-  gap:10px;
-  background:white;
-  padding:10px;
-  box-shadow:0 -2px 10px rgba(0,0,0,0.1);
 }
-.bar a{
+.buttons a{
   flex:1;
-}
-.cart{
-  width:100%;
   padding:14px;
-  border:2px solid #9c27b0;
-  background:white;
-  color:#9c27b0;
-  border-radius:10px;
-  font-size:16px;
-}
-.buy{
-  width:100%;
-  padding:14px;
-  background:#9c27b0;
+  text-align:center;
+  font-weight:bold;
   color:white;
-  border:none;
-  border-radius:10px;
-  font-size:16px;
+  text-decoration:none;
+}
+.add-cart{
+  background:#ff9800;
+}
+.buy-now{
+  background:#9c27b0;
 }
 .space{
-  height:80px;
+  height:70px;
 }
 </style>
 </head>
@@ -140,61 +156,73 @@ body{
 
 <!-- HEADER -->
 <div class="header">
-  <a href="home.html">⬅</a>
-  <div class="icons">
-    <a href="search.html">🔍</a>
-    <a href="wishlist.html">❤️</a>
-    <a href="cart.html">🛒</a>
-    <a href="profile.html">👤</a>
+  <a href="home.html">←</a>
+  <div class="title">Product</div>
+  <a href="cart.html">🛒</a>
+</div>
+
+<!-- SWIPE IMAGES -->
+<div class="swipe-container">
+  <img src="https://i.imgur.com/YR6P6Qy.jpeg" id="productImage">
+  <div class="swipe-buttons">
+    <span id="prev">‹</span>
+    <span id="next">›</span>
   </div>
 </div>
 
-<!-- MAIN IMAGE -->
-<div class="main-img">
-  <img id="main" src="https://i.imgur.com/YR6P6Qy.jpeg" alt="Supercar Poster">
-</div>
-
-<!-- THUMBNAILS -->
-<div class="thumbs">
-  <img src="https://i.imgur.com/YR6P6Qy.jpeg" onclick="change(this)">
-  <img src="https://i.imgur.com/4AiXzf8.jpeg" onclick="change(this)">
-  <img src="https://i.imgur.com/8Km9tLL.jpeg" onclick="change(this)">
-</div>
-
-<!-- DETAILS -->
+<!-- PRODUCT DETAILS -->
 <div class="details">
-  <span class="mall">Mall</span>
-  <p class="title">Supercar Wall Poster 24x36 inch</p>
-  <div class="rating">⭐⭐⭐⭐☆ (4.5) • 1,245 Reviews</div>
   <div class="price">
-    ₹258
-    <span class="old">₹499</span>
-    <span class="off">48% off</span>
+    ₹258 <span class="old">₹314</span> <span class="off">18% off</span>
   </div>
+  <div class="title">Supercar Wall Poster for Room Decoration</div>
+  <div class="rating">⭐⭐⭐⭐☆ (245 Reviews)</div>
 </div>
 
-<!-- SIMILAR PRODUCTS -->
-<div class="similar">
+<!-- RELATED PRODUCTS -->
+<div class="related-section">
   <h3>Similar Products</h3>
-  <div class="products">
-    <a href="product.html"><img src="https://i.imgur.com/YR6P6Qy.jpeg"></a>
-    <a href="product.html"><img src="https://i.imgur.com/4AiXzf8.jpeg"></a>
-    <a href="product.html"><img src="https://i.imgur.com/8Km9tLL.jpeg"></a>
+  <div class="related">
+    <a href="product.html">
+      <img src="https://i.imgur.com/YR6P6Qy.jpeg">
+      <p>Gaming Poster ₹199</p>
+    </a>
+    <a href="product.html">
+      <img src="https://i.imgur.com/YR6P6Qy.jpeg">
+      <p>Bike Poster ₹299</p>
+    </a>
+    <a href="product.html">
+      <img src="https://i.imgur.com/YR6P6Qy.jpeg">
+      <p>Car Poster ₹258</p>
+    </a>
   </div>
 </div>
 
 <div class="space"></div>
 
-<!-- BUTTON BAR -->
-<div class="bar">
-  <a href="cart.html"><button class="cart">Add to Cart</button></a>
-  <a href="checkout.html"><button class="buy">Buy Now</button></a>
+<!-- BUTTONS -->
+<div class="buttons">
+  <a href="cart.html" class="add-cart">Add to Cart</a>
+  <a href="review.html" class="buy-now">Buy Now</a>
 </div>
 
 <script>
-function change(img){
-  document.getElementById("main").src = img.src;
-}
+// Swipe Images JS
+let images = [
+  "https://i.imgur.com/YR6P6Qy.jpeg",
+  "https://i.imgur.com/YW6XK7N.jpeg",
+  "https://i.imgur.com/7F8Qk8q.jpeg"
+];
+let index = 0;
+const productImage = document.getElementById("productImage");
+document.getElementById("prev").addEventListener("click", ()=>{
+  index = (index-1 + images.length)%images.length;
+  productImage.src = images[index];
+});
+document.getElementById("next").addEventListener("click", ()=>{
+  index = (index+1)%images.length;
+  productImage.src = images[index];
+});
 </script>
 
 </body>
