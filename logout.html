@@ -1,108 +1,71 @@
-﻿<!DOCTYPE html>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <title>Logout</title>
-
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
 body{
-background:#f2f2f2;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
+  background:#f2f2f2;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
 }
 
-/* card */
-
+/* Card */
 .box{
-background:white;
-padding:40px 30px;
-border-radius:12px;
-text-align:center;
-width:300px;
-box-shadow:0 4px 15px rgba(0,0,0,0.15);
+  background:white;
+  padding:40px 30px;
+  border-radius:12px;
+  text-align:center;
+  width:300px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.15);
 }
 
-/* icon */
-
+/* Icon */
 .icon{
-font-size:50px;
-margin-bottom:15px;
+  font-size:50px;
+  margin-bottom:15px;
 }
 
-/* text */
+/* Text */
+h2{margin-bottom:10px;}
+p{color:gray;font-size:14px;margin-bottom:20px;}
 
-h2{
-margin-bottom:10px;
-}
-
-p{
-color:gray;
-font-size:14px;
-margin-bottom:20px;
-}
-
-/* buttons */
-
+/* Buttons */
 .btn{
-display:block;
-text-decoration:none;
-padding:12px;
-border-radius:25px;
-margin-top:10px;
-font-size:14px;
+  display:block;
+  text-decoration:none;
+  padding:12px;
+  border-radius:25px;
+  margin-top:10px;
+  font-size:14px;
 }
 
-/* login button */
-
+/* Login Button */
 .login{
-background:#9c27b0;
-color:white;
+  background:#9c27b0;
+  color:white;
 }
 
-/* home button */
-
+/* Home Button */
 .home{
-background:#eee;
-color:black;
+  background:#eee;
+  color:black;
 }
-
 </style>
-
 </head>
-
 <body>
 
 <div class="box">
-
-<div class="icon">👋</div>
-
-<h2>You Logged Out</h2>
-
-<p>Your account has been logged out successfully</p>
-
-<a href="index.html" class="btn login">
-Login Again
-</a>
-
-<a href="home.html" class="btn home">
-Go to Home
-</a>
-
+  <div class="icon">👋</div>
+  <h2>You Logged Out</h2>
+  <p>Your account has been logged out successfully</p>
+  <a href="login.html" class="btn login">Login Again</a>
+  <a href="home.html" class="btn home">Go to Home</a>
 </div>
 
 </body>
-
 </html>
