@@ -4,20 +4,24 @@
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <title>My Cart</title>
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+body{
 font-family:Arial;
+margin:0;
+background:#f5f5f5;
 }
 
-body{
-background:linear-gradient(#f7f7f7,#ececec);
+.header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:10px;
+background:white;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+font-size:20px;
 }
 
 a{
@@ -25,33 +29,13 @@ text-decoration:none;
 color:black;
 }
 
-/* HEADER */
-
-.header{
-background:white;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:12px;
-box-shadow:0 2px 8px rgba(0,0,0,0.1);
-position:sticky;
-top:0;
-}
-
-.title{
-font-size:18px;
-font-weight:bold;
-}
-
-/* CART ITEM */
-
 .cart-box{
 background:white;
 margin:10px;
-padding:12px;
+padding:10px;
+border-radius:8px;
 display:flex;
 gap:10px;
-border-radius:8px;
 }
 
 .cart-box img{
@@ -59,7 +43,7 @@ width:90px;
 border-radius:6px;
 }
 
-.item-info{
+.info{
 flex:1;
 }
 
@@ -67,8 +51,6 @@ flex:1;
 font-weight:bold;
 margin-top:5px;
 }
-
-/* QUANTITY */
 
 .qty{
 display:flex;
@@ -86,13 +68,10 @@ border-radius:4px;
 cursor:pointer;
 }
 
-/* REMOVE */
-
 .remove{
 color:red;
 font-size:13px;
 margin-top:6px;
-display:inline-block;
 cursor:pointer;
 }
 
@@ -139,17 +118,13 @@ height:70px;
 
 <body>
 
-<!-- HEADER -->
-
 <div class="header">
 
-<a href="home.html">←</a>
+<a href="home.html">⬅</a>
 
-<div class="title">
-My Cart
-</div>
+<div>My Cart</div>
 
-<a href="profile.html">👤</a>
+<a href="orders.html">📦</a>
 
 </div>
 
@@ -159,7 +134,7 @@ My Cart
 
 <img src="https://i.imgur.com/YR6P6Qy.jpeg">
 
-<div class="item-info">
+<div class="info">
 
 <p>Supercar Wall Poster</p>
 
@@ -177,15 +152,15 @@ My Cart
 
 </div>
 
-<span class="remove" onclick="removeItem()">
+<div class="remove" onclick="removeItem()">
 Remove
-</span>
-
 </div>
 
 </div>
 
-<!-- PRICE SUMMARY -->
+</div>
+
+<!-- SUMMARY -->
 
 <div class="summary">
 
@@ -208,30 +183,28 @@ Remove
 
 <div class="space"></div>
 
-<!-- CHECKOUT BUTTON -->
-
-<a href="review.html">
+<a href="checkout.html">
 
 <div class="checkout">
-Continue to Checkout
+Proceed to Checkout
 </div>
 
 </a>
 
 <script>
 
-let quantity = 1
-let price = 258
-let delivery = 40
+let quantity=1
+let price=258
+let delivery=40
 
 function updatePrice(){
 
-let itemTotal = price * quantity
-let total = itemTotal + delivery
+let itemTotal=price*quantity
+let total=itemTotal+delivery
 
-document.getElementById("qty").innerText = quantity
-document.getElementById("itemTotal").innerText = itemTotal
-document.getElementById("grandTotal").innerText = total
+document.getElementById("qty").innerText=quantity
+document.getElementById("itemTotal").innerText=itemTotal
+document.getElementById("grandTotal").innerText=total
 
 }
 
@@ -251,8 +224,8 @@ function removeItem(){
 
 document.getElementById("item").style.display="none"
 
-document.getElementById("itemTotal").innerText = "0"
-document.getElementById("grandTotal").innerText = "0"
+document.getElementById("itemTotal").innerText="0"
+document.getElementById("grandTotal").innerText="0"
 
 }
 
