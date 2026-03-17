@@ -1,158 +1,201 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Product Details</title>
-
+<title>Product Detail</title>
 <style>
-
 body{
-font-family:Arial;
-margin:0;
-background:#f5f5f5;
+  margin:0;
+  font-family:Arial;
+  background:#f4f4f4;
 }
-
 /* HEADER */
-
 .header{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:10px;
-background:white;
-box-shadow:0 2px 6px rgba(0,0,0,0.1);
-font-size:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px;
+  background:white;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
 }
-
-a{
-text-decoration:none;
-color:black;
+.icons a{
+  margin-left:16px;
+  font-size:20px;
+  text-decoration:none;
 }
-
-/* PRODUCT */
-
-.product{
-padding:10px;
+/* MAIN IMAGE */
+.main-img{
+  background:white;
+  padding:10px;
 }
-
-.product img{
-width:100%;
-border-radius:8px;
+.main-img img{
+  width:100%;
+  border-radius:12px;
 }
-
-.name{
-font-size:18px;
-margin-top:10px;
+/* THUMBNAILS */
+.thumbs{
+  display:flex;
+  gap:10px;
+  padding:10px;
+  background:white;
+  overflow-x:auto;
 }
-
+.thumbs img{
+  width:70px;
+  border-radius:10px;
+  border:2px solid #ddd;
+  cursor:pointer;
+}
+/* DETAILS */
+.details{
+  background:white;
+  padding:15px;
+  margin-top:8px;
+}
+.mall{
+  background:#9c27b0;
+  color:white;
+  font-size:12px;
+  padding:4px 8px;
+  border-radius:6px;
+}
+.title{
+  margin-top:6px;
+  font-size:16px;
+  color:#333;
+}
+.rating{
+  margin-top:6px;
+  color:#ff9800;
+  font-size:14px;
+}
 .price{
-font-size:20px;
-font-weight:bold;
-margin-top:5px;
+  font-size:28px;
+  font-weight:bold;
+  margin-top:8px;
 }
-
-.desc{
-margin-top:10px;
-color:#555;
+.old{
+  text-decoration:line-through;
+  color:gray;
+  margin-left:8px;
 }
-
-/* BUTTONS */
-
-.buttons{
-display:flex;
-gap:10px;
-margin-top:20px;
+.off{
+  color:green;
+  margin-left:8px;
 }
-
-button{
-flex:1;
-padding:12px;
-border:none;
-border-radius:6px;
-font-size:16px;
-cursor:pointer;
+/* SIMILAR PRODUCTS */
+.similar{
+  background:white;
+  padding:12px;
+  margin-top:10px;
 }
-
+.products{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+}
+.products img{
+  width:95px;
+  border-radius:10px;
+}
+/* BUTTON BAR */
+.bar{
+  position:fixed;
+  bottom:0;
+  width:100%;
+  display:flex;
+  gap:10px;
+  background:white;
+  padding:10px;
+  box-shadow:0 -2px 10px rgba(0,0,0,0.1);
+}
+.bar a{
+  flex:1;
+}
 .cart{
-background:#ff9800;
-color:white;
+  width:100%;
+  padding:14px;
+  border:2px solid #9c27b0;
+  background:white;
+  color:#9c27b0;
+  border-radius:10px;
+  font-size:16px;
 }
-
 .buy{
-background:#9c27b0;
-color:white;
+  width:100%;
+  padding:14px;
+  background:#9c27b0;
+  color:white;
+  border:none;
+  border-radius:10px;
+  font-size:16px;
 }
-
+.space{
+  height:80px;
+}
 </style>
-
 </head>
-
 <body>
 
 <!-- HEADER -->
-
 <div class="header">
-
-<a href="home.html">⬅</a>
-
-<div>Product</div>
-
-<a href="wishlist.html">❤️</a>
-
+  <a href="home.html">⬅</a>
+  <div class="icons">
+    <a href="search.html">🔍</a>
+    <a href="wishlist.html">❤️</a>
+    <a href="cart.html">🛒</a>
+    <a href="profile.html">👤</a>
+  </div>
 </div>
 
-<!-- PRODUCT -->
-
-<div class="product">
-
-<img src="https://i.imgur.com/YR6P6Qy.jpeg">
-
-<div class="name">
-Supercar Wall Poster
+<!-- MAIN IMAGE -->
+<div class="main-img">
+  <img id="main" src="https://i.imgur.com/YR6P6Qy.jpeg" alt="Supercar Poster">
 </div>
 
-<div class="price">
-₹258
+<!-- THUMBNAILS -->
+<div class="thumbs">
+  <img src="https://i.imgur.com/YR6P6Qy.jpeg" onclick="change(this)">
+  <img src="https://i.imgur.com/4AiXzf8.jpeg" onclick="change(this)">
+  <img src="https://i.imgur.com/8Km9tLL.jpeg" onclick="change(this)">
 </div>
 
-<div class="desc">
-High quality supercar wall poster. Perfect for room decoration.
+<!-- DETAILS -->
+<div class="details">
+  <span class="mall">Mall</span>
+  <p class="title">Supercar Wall Poster 24x36 inch</p>
+  <div class="rating">⭐⭐⭐⭐☆ (4.5) • 1,245 Reviews</div>
+  <div class="price">
+    ₹258
+    <span class="old">₹499</span>
+    <span class="off">48% off</span>
+  </div>
 </div>
 
-<div class="buttons">
-
-<button class="cart" onclick="addCart()">
-Add to Cart
-</button>
-
-<button class="buy" onclick="buyNow()">
-Buy Now
-</button>
-
+<!-- SIMILAR PRODUCTS -->
+<div class="similar">
+  <h3>Similar Products</h3>
+  <div class="products">
+    <a href="product.html"><img src="https://i.imgur.com/YR6P6Qy.jpeg"></a>
+    <a href="product.html"><img src="https://i.imgur.com/4AiXzf8.jpeg"></a>
+    <a href="product.html"><img src="https://i.imgur.com/8Km9tLL.jpeg"></a>
+  </div>
 </div>
 
+<div class="space"></div>
+
+<!-- BUTTON BAR -->
+<div class="bar">
+  <a href="cart.html"><button class="cart">Add to Cart</button></a>
+  <a href="checkout.html"><button class="buy">Buy Now</button></a>
 </div>
 
 <script>
-
-function addCart(){
-
-alert("Added to cart")
-
-window.location="cart.html"
-
+function change(img){
+  document.getElementById("main").src = img.src;
 }
-
-function buyNow(){
-
-window.location="cart.html"
-
-}
-
 </script>
 
 </body>
-
 </html>
