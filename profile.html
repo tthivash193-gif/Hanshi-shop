@@ -1,139 +1,106 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>My Profile</title>
-
 <style>
-
-body{
-font-family:Arial;
-margin:0;
-background:#f5f5f5;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+body{background:linear-gradient(#f7f7f7,#ececec);}
+a{text-decoration:none;color:black;}
 
 /* HEADER */
-
 .header{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:10px;
-background:white;
-box-shadow:0 2px 6px rgba(0,0,0,0.1);
-font-size:20px;
+  background:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
 }
-
-a{
-text-decoration:none;
-color:black;
-}
+.title{font-size:18px;font-weight:bold;}
 
 /* PROFILE BOX */
-
-.profile{
-background:white;
-margin:10px;
-padding:20px;
-border-radius:8px;
-text-align:center;
+.profile-box{
+  background:white;
+  margin:10px;
+  padding:25px;
+  border-radius:10px;
+  text-align:center;
 }
-
-.profile img{
-width:80px;
-border-radius:50%;
-margin-bottom:10px;
-}
+.avatar{font-size:55px;}
+.name{margin-top:10px;font-size:18px;font-weight:bold;}
+.phone{color:gray;font-size:14px;}
 
 /* MENU */
-
 .menu{
-background:white;
-margin:10px;
-border-radius:8px;
+  background:white;
+  margin:10px;
+  border-radius:10px;
+  overflow:hidden;
 }
-
-.menu a{
-display:block;
-padding:12px;
-border-bottom:1px solid #eee;
-color:black;
+.item{
+  display:flex;
+  justify-content:space-between;
+  padding:15px;
+  border-bottom:1px solid #eee;
+  font-size:16px;
 }
-
-.menu a:last-child{
-border-bottom:none;
-}
-
-.logout{
-color:red;
-text-align:center;
-padding:12px;
-}
-
+.item:last-child{border-bottom:none;}
 </style>
-
 </head>
-
 <body>
 
 <div class="header">
-
-<a href="home.html">⬅</a>
-
-<div>Profile</div>
-
-<a href="cart.html">🛒</a>
-
+  <a href="home.html">←</a>
+  <div class="title">My Profile</div>
+  <a href="cart.html">🛒</a>
 </div>
 
-<!-- PROFILE -->
-
-<div class="profile">
-
-<img src="https://i.imgur.com/2DhmtJ4.png">
-
-<h3 id="userEmail">User</h3>
-
+<div class="profile-box">
+  <div class="avatar">👤</div>
+  <div class="name">Thivash</div>
+  <div class="phone">+91 9876543210</div>
 </div>
-
-<!-- MENU -->
 
 <div class="menu">
-
-<a href="orders.html">📦 My Orders</a>
-
-<a href="cart.html">🛒 My Cart</a>
-
-<a href="wishlist.html">❤️ Wishlist</a>
-
-<a href="home.html">🏠 Home</a>
-
-<div class="logout" onclick="logout()">
-Logout
+  <a href="orders.html">
+    <div class="item">
+      <span>📦 My Orders</span>
+      <span>→</span>
+    </div>
+  </a>
+  <a href="wishlist.html">
+    <div class="item">
+      <span>❤️ Wishlist</span>
+      <span>→</span>
+    </div>
+  </a>
+  <a href="cart.html">
+    <div class="item">
+      <span>🛒 My Cart</span>
+      <span>→</span>
+    </div>
+  </a>
+  <a href="address.html">
+    <div class="item">
+      <span>📍 My Address</span>
+      <span>→</span>
+    </div>
+  </a>
+  <a href="help.html">
+    <div class="item">
+      <span>❓ Help & Support</span>
+      <span>→</span>
+    </div>
+  </a>
+  <a href="logout.html">
+    <div class="item">
+      <span>🚪 Logout</span>
+      <span>→</span>
+    </div>
+  </a>
 </div>
-
-</div>
-
-<script>
-
-let email=localStorage.getItem("userEmail")
-
-if(email){
-document.getElementById("userEmail").innerText=email
-}
-
-function logout(){
-
-localStorage.clear()
-
-window.location="index.html"
-
-}
-
-</script>
 
 </body>
-
 </html>
