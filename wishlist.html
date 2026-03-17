@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>My Wishlist</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:linear-gradient(#f7f7f7,#ececec);
+}
+
+a{
+text-decoration:none;
+color:black;
+}
+
+/* HEADER */
+
+.header{
+background:white;
+padding:12px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.title{
+font-size:18px;
+font-weight:bold;
+}
+
+/* ITEM */
+
+.item{
+background:white;
+margin:12px;
+padding:12px;
+border-radius:10px;
+display:flex;
+gap:10px;
+}
+
+.item img{
+width:80px;
+border-radius:6px;
+}
+
+.info{
+flex:1;
+}
+
+.price{
+font-weight:bold;
+margin-top:5px;
+}
+
+.remove{
+color:red;
+font-size:13px;
+margin-top:6px;
+cursor:pointer;
+}
+
+/* BUTTON */
+
+.shop{
+margin:15px;
+display:block;
+text-align:center;
+padding:12px;
+background:#9c27b0;
+color:white;
+border-radius:8px;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<a href="home.html">←</a>
+
+<div class="title">
+My Wishlist
+</div>
+
+<a href="cart.html">🛒</a>
+
+</div>
+
+<!-- ITEM 1 -->
+
+<div class="item" id="item1">
+
+<img src="https://i.imgur.com/YR6P6Qy.jpeg">
+
+<div class="info">
+
+<p>Supercar Wall Poster</p>
+
+<div class="price">
+₹258
+</div>
+
+<div class="remove" onclick="remove1()">
+Remove
+</div>
+
+</div>
+
+</div>
+
+<!-- ITEM 2 -->
+
+<div class="item" id="item2">
+
+<img src="https://i.imgur.com/9N5QZQx.jpeg">
+
+<div class="info">
+
+<p>Photo Frame</p>
+
+<div class="price">
+₹199
+</div>
+
+<div class="remove" onclick="remove2()">
+Remove
+</div>
+
+</div>
+
+</div>
+
+<a href="home.html" class="shop">
+Go Shopping
+</a>
+
+<script>
+
+function remove1(){
+document.getElementById("item1").style.display="none"
+}
+
+function remove2(){
+document.getElementById("item2").style.display="none"
+}
+
+</script>
+
+</body>
+
+</html>
