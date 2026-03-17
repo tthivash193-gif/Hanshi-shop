@@ -2,46 +2,48 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Wishlist</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Wishlist</title>
 <style>
-body{font-family:Arial;background:linear-gradient(#f7f7f7,#ececec);margin:0;}
-a{text-decoration:none;color:black;}
-
-/* HEADER */
-.header{
-  background:white;
-  padding:12px;
-  box-shadow:0 2px 6px rgba(0,0,0,0.1);
-}
-
-/* WISHLIST BOX */
-.box{
-  background:white;
-  margin:15px;
-  padding:25px;
-  border-radius:10px;
-  text-align:center;
-}
-.box h2{margin-bottom:10px;}
-.box p{color:gray;font-size:14px;margin-bottom:20px;}
-.start-shop{
-  color:#9c27b0;
-  margin-top:10px;
-  display:inline-block;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{background:#f7f7f7;}
+.header{display:flex;justify-content:space-between;align-items:center;padding:12px 15px;background:white;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:sticky;top:0;z-index:10;}
+.header a{text-decoration:none;color:black;font-size:20px;}
+.header .title{font-size:18px;font-weight:bold;}
+.wishlist-container{padding:15px;margin-top:8px;}
+.wishlist-item{background:white;margin-bottom:12px;padding:12px;display:flex;gap:12px;border-radius:8px;align-items:center;}
+.wishlist-item img{width:80px;height:80px;border-radius:8px;object-fit:cover;}
+.wishlist-info{flex:1;}
+.wishlist-info h4{font-size:16px;margin-bottom:4px;}
+.wishlist-info .price{font-weight:bold;margin-bottom:4px;}
+.wishlist-info .remove{color:red;font-size:14px;cursor:pointer;}
 </style>
 </head>
 <body>
 
 <div class="header">
-  <a href="profile.html">← Back</a>
+  <a href="profile.html">←</a>
+  <div class="title">My Wishlist</div>
+  <a href="cart.html">🛒</a>
 </div>
 
-<div class="box">
-  <h2>My Wishlist ❤️</h2>
-  <p>No items added yet</p>
-  <a href="home.html" class="start-shop">Start Shopping</a>
+<div class="wishlist-container">
+  <div class="wishlist-item">
+    <img src="https://i.imgur.com/YR6P6Qy.jpeg" alt="Supercar Poster">
+    <div class="wishlist-info">
+      <h4>Supercar Wall Poster</h4>
+      <div class="price">₹258</div>
+      <div class="remove">Remove ❌</div>
+    </div>
+  </div>
+  <div class="wishlist-item">
+    <img src="https://i.imgur.com/YW6XK7N.jpeg" alt="Bike Poster">
+    <div class="wishlist-info">
+      <h4>Bike Wall Poster</h4>
+      <div class="price">₹299</div>
+      <div class="remove">Remove ❌</div>
+    </div>
+  </div>
 </div>
 
 </body>
