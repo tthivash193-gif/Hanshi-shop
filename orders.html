@@ -1,143 +1,50 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>My Orders</title>
-
+<title>Order Success</title>
 <style>
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
 body{
-font-family:Arial;
-margin:0;
-background:#f5f5f5;
+  background:#f5f5f5;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  text-align:center;
 }
-
-/* HEADER */
-
-.header{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:10px;
-background:white;
-box-shadow:0 2px 6px rgba(0,0,0,0.1);
-font-size:20px;
+.box{
+  background:white;
+  padding:30px;
+  border-radius:10px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
 }
-
+h1{
+  color:green;
+  margin-bottom:10px;
+}
+.btn{
+  margin-top:20px;
+  background:#9c27b0;
+  color:white;
+  padding:12px 20px;
+  border-radius:6px;
+  display:inline-block;
+}
 a{
-text-decoration:none;
-color:black;
+  text-decoration:none;
+  color:white;
 }
-
-/* SUCCESS */
-
-.success{
-background:white;
-margin:10px;
-padding:15px;
-border-radius:8px;
-text-align:center;
-}
-
-.success h2{
-color:green;
-}
-
-/* ORDER BOX */
-
-.order{
-background:white;
-margin:10px;
-padding:10px;
-border-radius:8px;
-display:flex;
-gap:10px;
-}
-
-.order img{
-width:80px;
-border-radius:6px;
-}
-
-.info{
-flex:1;
-}
-
-.price{
-font-weight:bold;
-margin-top:5px;
-}
-
-.status{
-color:green;
-margin-top:4px;
-}
-
-/* HOME BUTTON */
-
-.home{
-display:block;
-margin:15px;
-padding:12px;
-background:#9c27b0;
-color:white;
-text-align:center;
-border-radius:8px;
-font-weight:bold;
-}
-
 </style>
-
 </head>
-
 <body>
 
-<div class="header">
-
-<a href="home.html">⬅</a>
-
-<div>My Orders</div>
-
-<a href="cart.html">🛒</a>
-
+<div class="box">
+  <h1>🎉 Order Placed!</h1>
+  <p>Your order was placed successfully.</p>
+  <a href="home.html" class="btn">Back to Home</a>
 </div>
-
-<!-- SUCCESS MESSAGE -->
-
-<div class="success">
-
-<h2>Order Placed Successfully</h2>
-
-<p>Order ID: #10404</p>
-
-</div>
-
-<!-- ORDER -->
-
-<div class="order">
-
-<img src="https://i.imgur.com/YR6P6Qy.jpeg">
-
-<div class="info">
-
-<p>Supercar Wall Poster</p>
-
-<div class="price">₹258</div>
-
-<div class="status">
-Delivered
-</div>
-
-</div>
-
-</div>
-
-<a href="home.html" class="home">
-Back to Home
-</a>
 
 </body>
-
 </html>
