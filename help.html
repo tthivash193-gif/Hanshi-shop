@@ -2,41 +2,45 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Help & Support</title>
 <style>
-body{font-family:Arial;background:linear-gradient(#f7f7f7,#ececec);margin:0;}
-a{text-decoration:none;color:black;}
-
-/* HEADER */
-.header{
-  background:white;
-  padding:12px;
-  box-shadow:0 2px 6px rgba(0,0,0,0.1);
-}
-
-/* HELP BOX */
-.box{
-  background:white;
-  margin:15px;
-  padding:20px;
-  border-radius:10px;
-}
-.box h3{margin-bottom:10px;}
-.box p{margin-bottom:8px;color:gray;font-size:14px;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{background:#f7f7f7;}
+.header{display:flex;justify-content:space-between;align-items:center;padding:12px 15px;background:white;box-shadow:0 2px 8px rgba(0,0,0,0.1);position:sticky;top:0;z-index:10;}
+.header a{text-decoration:none;color:black;font-size:20px;}
+.header .title{font-size:18px;font-weight:bold;}
+.help-container{padding:15px;margin-top:8px;}
+.help-item{background:white;margin-bottom:12px;padding:15px;border-radius:8px;cursor:pointer;border-left:4px solid #4CAF50;}
+.help-item h4{font-size:16px;color:#333;}
+.help-item p{color:gray;font-size:14px;margin-top:4px;display:none;}
+.help-item.active p{display:block;}
 </style>
+<script>
+function toggleHelp(el){el.classList.toggle('active');}
+</script>
 </head>
 <body>
 
 <div class="header">
-  <a href="profile.html">← Back</a>
+  <a href="profile.html">←</a>
+  <div class="title">Help & Support</div>
+  <a href="cart.html">🛒</a>
 </div>
 
-<div class="box">
-  <h3>Help & Support</h3>
-  <p>Email: support@minimeesho.com</p>
-  <p>Phone: +91 9876543210</p>
-  <p>Support available 9AM – 8PM</p>
+<div class="help-container">
+  <div class="help-item" onclick="toggleHelp(this)">
+    <h4>How to track my order?</h4>
+    <p>Go to 'My Orders' page, select your order, click 'Track'.</p>
+  </div>
+  <div class="help-item" onclick="toggleHelp(this)">
+    <h4>How to cancel an order?</h4>
+    <p>You can cancel within 24 hours of placing the order from 'My Orders'.</p>
+  </div>
+  <div class="help-item" onclick="toggleHelp(this)">
+    <h4>Payment issues?</h4>
+    <p>Contact your bank or try another payment method in the checkout page.</p>
+  </div>
 </div>
 
 </body>
