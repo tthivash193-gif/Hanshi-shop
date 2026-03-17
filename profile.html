@@ -4,20 +4,26 @@
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <title>My Profile</title>
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+body{
 font-family:Arial;
+margin:0;
+background:#f5f5f5;
 }
 
-body{
-background:linear-gradient(#f7f7f7,#ececec);
+/* HEADER */
+
+.header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:10px;
+background:white;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+font-size:20px;
 }
 
 a{
@@ -25,45 +31,20 @@ text-decoration:none;
 color:black;
 }
 
-/* HEADER */
+/* PROFILE BOX */
 
-.header{
-background:white;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:12px;
-box-shadow:0 2px 8px rgba(0,0,0,0.1);
-}
-
-.title{
-font-size:18px;
-font-weight:bold;
-}
-
-/* PROFILE */
-
-.profile-box{
+.profile{
 background:white;
 margin:10px;
-padding:25px;
-border-radius:10px;
+padding:20px;
+border-radius:8px;
 text-align:center;
 }
 
-.avatar{
-font-size:55px;
-}
-
-.name{
-margin-top:10px;
-font-size:18px;
-font-weight:bold;
-}
-
-.phone{
-color:gray;
-font-size:14px;
+.profile img{
+width:80px;
+border-radius:50%;
+margin-bottom:10px;
 }
 
 /* MENU */
@@ -71,20 +52,24 @@ font-size:14px;
 .menu{
 background:white;
 margin:10px;
-border-radius:10px;
-overflow:hidden;
+border-radius:8px;
 }
 
-.item{
-display:flex;
-justify-content:space-between;
-padding:15px;
+.menu a{
+display:block;
+padding:12px;
 border-bottom:1px solid #eee;
-font-size:16px;
+color:black;
 }
 
-.item:last-child{
+.menu a:last-child{
 border-bottom:none;
+}
+
+.logout{
+color:red;
+text-align:center;
+padding:12px;
 }
 
 </style>
@@ -93,35 +78,23 @@ border-bottom:none;
 
 <body>
 
-<!-- HEADER -->
-
 <div class="header">
 
-<a href="home.html">←</a>
+<a href="home.html">⬅</a>
 
-<div class="title">
-My Profile
-</div>
+<div>Profile</div>
 
 <a href="cart.html">🛒</a>
 
 </div>
 
-<!-- PROFILE BOX -->
+<!-- PROFILE -->
 
-<div class="profile-box">
+<div class="profile">
 
-<div class="avatar">
-👤
-</div>
+<img src="https://i.imgur.com/2DhmtJ4.png">
 
-<div class="name">
-Thivash
-</div>
-
-<div class="phone">
-+91 9876543210
-</div>
+<h3 id="userEmail">User</h3>
 
 </div>
 
@@ -129,49 +102,37 @@ Thivash
 
 <div class="menu">
 
-<a href="orders.html">
-<div class="item">
-<span>📦 My Orders</span>
-<span>→</span>
-</div>
-</a>
+<a href="orders.html">📦 My Orders</a>
 
-<a href="wishlist.html">
-<div class="item">
-<span>❤️ Wishlist</span>
-<span>→</span>
-</div>
-</a>
+<a href="cart.html">🛒 My Cart</a>
 
-<a href="cart.html">
-<div class="item">
-<span>🛒 My Cart</span>
-<span>→</span>
-</div>
-</a>
+<a href="wishlist.html">❤️ Wishlist</a>
 
-<a href="address.html">
-<div class="item">
-<span>📍 My Address</span>
-<span>→</span>
-</div>
-</a>
+<a href="home.html">🏠 Home</a>
 
-<a href="help.html">
-<div class="item">
-<span>❓ Help & Support</span>
-<span>→</span>
+<div class="logout" onclick="logout()">
+Logout
 </div>
-</a>
-
-<a href="logout.html">
-<div class="item">
-<span>🚪 Logout</span>
-<span>→</span>
-</div>
-</a>
 
 </div>
+
+<script>
+
+let email=localStorage.getItem("userEmail")
+
+if(email){
+document.getElementById("userEmail").innerText=email
+}
+
+function logout(){
+
+localStorage.clear()
+
+window.location="index.html"
+
+}
+
+</script>
 
 </body>
 
